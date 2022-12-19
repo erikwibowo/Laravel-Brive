@@ -10,7 +10,7 @@ import DangerButton from '@/Components/DangerButton.vue';
 import { _, pickBy, debounce } from "lodash";
 import { Inertia } from '@inertiajs/inertia';
 import Pagination from '@/Components/Pagination.vue';
-import { PencilIcon, TrashIcon } from '@heroicons/vue/24/solid';
+import { ChevronUpDownIcon, PencilIcon, TrashIcon } from '@heroicons/vue/24/solid';
 
 const props = defineProps({
     title: String,
@@ -68,17 +68,38 @@ watch(() => _.cloneDeep(data.params), debounce(() => {
                     <div>
                         <SelectInput v-model="data.params.perPage" :dataSet="data.dataSet" />
                     </div>
-                    <TextInput v-model="data.params.search" type="text" class="block w-3/6 md:w-2/6 lg:w-1/6 rounded-lg" placeholder="Search..." />
+                    <TextInput v-model="data.params.search" type="text" class="block w-3/6 md:w-2/6 lg:w-1/6 rounded-lg"
+                        placeholder="Search..." />
                 </div>
                 <div class="overflow-x-auto scrollbar-table">
                     <table class="w-full">
                         <thead class="uppercase text-sm border-t border-gray-200 dark:border-gray-700">
                             <tr class="dark:bg-gray-900/50 text-left">
                                 <th class="px-2 py-4 text-center">#</th>
-                                <th class="px-2 py-4">Name</th>
-                                <th class="px-2 py-4">Email</th>
-                                <th class="px-2 py-4">Created</th>
-                                <th class="px-2 py-4">Updated</th>
+                                <th class="px-2 py-4">
+                                    <div class="flex justify-between items-center">
+                                        <span>Name</span>
+                                        <ChevronUpDownIcon class="w-4 h-4" />
+                                    </div>
+                                </th>
+                                <th class="px-2 py-4">
+                                    <div class="flex justify-between items-center">
+                                        <span>Email</span>
+                                        <ChevronUpDownIcon class="w-4 h-4" />
+                                    </div>
+                                </th>
+                                <th class="px-2 py-4">
+                                    <div class="flex justify-between items-center">
+                                        <span>Created</span>
+                                        <ChevronUpDownIcon class="w-4 h-4" />
+                                    </div>
+                                </th>
+                                <th class="px-2 py-4">
+                                    <div class="flex justify-between items-center">
+                                        <span>Updated</span>
+                                        <ChevronUpDownIcon class="w-4 h-4" />
+                                    </div>
+                                </th>
                                 <th class="px-2 py-4 sr-only">Action</th>
                             </tr>
                         </thead>
