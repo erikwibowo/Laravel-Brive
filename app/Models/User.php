@@ -33,12 +33,18 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function getCreatedAtAttribute()
+    {
+        return date('d-m-Y H:i', strtotime($this->attributes['created_at']));
+    }
+
+    public function getUpdatedAtAttribute()
+    {
+        return date('d-m-Y H:i', strtotime($this->attributes['updated_at']));
+    }
+
+    public function getEmailVerifiedAtAttribute()
+    {
+        return date('d-m-Y H:i', strtotime($this->attributes['email_verified_at']));
+    }
 }

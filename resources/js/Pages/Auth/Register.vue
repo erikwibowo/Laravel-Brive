@@ -31,7 +31,7 @@ const submit = () => {
                 <InputLabel for="name" value="Name" />
 
                 <TextInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus
-                    autocomplete="name" />
+                    autocomplete="name" placeholder="Your Name" />
 
                 <InputError class="mt-2" :message="form.errors.name" />
             </div>
@@ -40,7 +40,7 @@ const submit = () => {
                 <InputLabel for="email" value="Email" />
 
                 <TextInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required
-                    autocomplete="username" />
+                    autocomplete="username" placeholder="email@email.com" />
 
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
@@ -49,7 +49,7 @@ const submit = () => {
                 <InputLabel for="password" value="Password" />
 
                 <TextInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required
-                    autocomplete="new-password" />
+                    autocomplete="new-password" placeholder="********" />
 
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
@@ -58,7 +58,7 @@ const submit = () => {
                 <InputLabel for="password_confirmation" value="Confirm Password" />
 
                 <TextInput id="password_confirmation" type="password" class="mt-1 block w-full"
-                    v-model="form.password_confirmation" required autocomplete="new-password" />
+                    v-model="form.password_confirmation" required autocomplete="new-password" placeholder="********" />
 
                 <InputError class="mt-2" :message="form.errors.password_confirmation" />
             </div>
@@ -70,7 +70,7 @@ const submit = () => {
                 </Link>
 
                 <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
+                    {{ form.processing ? 'Register...':'Register' }}
                 </PrimaryButton>
             </div>
         </form>

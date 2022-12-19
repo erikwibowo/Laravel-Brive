@@ -17,7 +17,7 @@ const emit = defineEmits(['close']);
 <template>
     <div class="hidden lg:flex">
         <aside
-            class="fixed lg:flex flex-col h-screen overflow-hidden w-64 pt-4 bg-white dark:bg-gray-800 dark:border-r dark:border-gray-700">
+            class="fixed lg:flex flex-col h-screen overflow-hidden w-64 bg-white dark:bg-gray-800 dark:border-r dark:border-gray-700">
             <div class="flex-1 h-screen overflow-y-auto scrollbar-sidebar px-3">
                 <SideBarMenu />
             </div>
@@ -28,8 +28,8 @@ const emit = defineEmits(['close']);
             <TransitionChild enter="transition ease-in-out duration-200 transform" enter-from="-translate-x-full"
                 enter-to="translate-x-0" leave="transition ease-in-out duration-200 transform"
                 leave-from="translate-x-0" leave-to="-translate-x-full" as="template">
-                <aside class="flex flex-col relative z-10 w-64 pt-4 bg-white dark:bg-gray-800 dark:border-r dark:border-gray-700">
-                    <div class="flex flex-col relative h-screen pt-4 min-h-screen">
+                <aside class="flex flex-col relative z-10 w-64 bg-white dark:bg-gray-800 dark:border-r dark:border-gray-700">
+                    <div class="flex flex-col relative h-screen min-h-screen">
                         <div class="overflow-y-auto flex-1 scrollbar-sidebar px-3">
                             <SideBarMenu />
                         </div>

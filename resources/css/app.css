@@ -29,3 +29,19 @@
 .scrollbar-sidebar::-webkit-scrollbar-track {
     @apply bg-gray-100 dark:bg-gray-900
 }
+
+.scrollbar-sidebar::-webkit-scrollbar {
+    @apply w-1 h-1 bg-gray-800 dark:bg-gray-300;
+}
+
+.scrollbar-sidebar::-webkit-scrollbar-track {
+    @apply bg-white dark:bg-gray-800
+}
+
+.scrollbar-sidebar::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 dark:bg-gray-300 rounded
+}
+
+.scrollbar-sidebar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-800/80 dark:bg-white/80
+}

@@ -11,7 +11,8 @@ const emit = defineEmits(["open"])
 </script>
 
 <template>
-    <nav class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 text-gray-500 dark:text-gray-300">
+    <nav
+        class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 text-gray-500 dark:text-gray-300">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -26,8 +27,8 @@ const emit = defineEmits(["open"])
                     <!-- Logo -->
                     <div class="flex">
                         <Link :href="route('dashboard')" class="flex items-center space-x-2">
-                            <ApplicationLogo class="block h-6 w-auto fill-current" />
-                            <p>{{ $page.props.app.name }}</p>
+                        <ApplicationLogo class="block h-6 w-auto fill-current" />
+                        <p>{{ $page.props.app.name }}</p>
                         </Link>
                     </div>
                 </div>
@@ -40,11 +41,11 @@ const emit = defineEmits(["open"])
                                 <template #trigger>
                                     <span class="inline-flex rounded-md">
                                         <button type="button"
-                                            class="inline-flex items-center px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150 sm:hidden">
+                                            class="inline-flex items-center px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md bg-white dark:bg-gray-800 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none transition ease-in-out duration-150 sm:hidden">
                                             <UserIcon class="h-4 w-4" />
                                         </button>
                                         <button type="button"
-                                            class="hidden sm:inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150 truncate w-20">
+                                            class="hidden sm:inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md bg-white dark:bg-gray-800 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none transition ease-in-out duration-150 truncate w-20">
                                             {{ $page.props.auth.user.name.split(' ')[0] }}
                                             <ChevronDownIcon class="ml-2 -mr-0.5 h-4 w-4 fill-current" />
                                         </button>

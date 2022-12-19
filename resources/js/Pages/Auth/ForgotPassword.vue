@@ -21,6 +21,7 @@ const submit = () => {
 
 <template>
     <GuestLayout>
+
         <Head title="Forgot Password" />
 
         <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
@@ -36,22 +37,15 @@ const submit = () => {
             <div>
                 <InputLabel for="email" value="Email" />
 
-                <TextInput
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autofocus
-                    autocomplete="username"
-                />
+                <TextInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus
+                    autocomplete="username" placeholder="email@email.com" />
 
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Email Password Reset Link
+                    {{ form.processing ? 'Email Password Reset Link...':'Email Password Reset Link' }}
                 </PrimaryButton>
             </div>
         </form>

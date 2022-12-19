@@ -45,7 +45,7 @@ const submit = () => {
             <div class="mt-4">
                 <InputLabel for="password" value="Password" />
                 <TextInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required
-                    autocomplete="current-password" placeholder="******" />
+                    autocomplete="current-password" placeholder="********" />
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
 
@@ -61,7 +61,7 @@ const submit = () => {
                 Forgot your password?
                 </Link>
                 <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
+                    {{ form.processing ? 'Log in...':'Log in' }}
                 </PrimaryButton>
             </div>
         </form>

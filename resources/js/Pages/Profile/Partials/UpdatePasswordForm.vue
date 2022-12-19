@@ -47,14 +47,8 @@ const updatePassword = () => {
             <div>
                 <InputLabel for="current_password" value="Current Password" />
 
-                <TextInput
-                    id="current_password"
-                    ref="currentPasswordInput"
-                    v-model="form.current_password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    autocomplete="current-password"
-                />
+                <TextInput id="current_password" ref="currentPasswordInput" v-model="form.current_password"
+                    type="password" class="mt-1 block w-full" autocomplete="current-password" placeholder="********" />
 
                 <InputError :message="form.errors.current_password" class="mt-2" />
             </div>
@@ -62,14 +56,8 @@ const updatePassword = () => {
             <div>
                 <InputLabel for="password" value="New Password" />
 
-                <TextInput
-                    id="password"
-                    ref="passwordInput"
-                    v-model="form.password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    autocomplete="new-password"
-                />
+                <TextInput id="password" ref="passwordInput" v-model="form.password" type="password"
+                    class="mt-1 block w-full" autocomplete="new-password" placeholder="********" />
 
                 <InputError :message="form.errors.password" class="mt-2" />
             </div>
@@ -77,19 +65,16 @@ const updatePassword = () => {
             <div>
                 <InputLabel for="password_confirmation" value="Confirm Password" />
 
-                <TextInput
-                    id="password_confirmation"
-                    v-model="form.password_confirmation"
-                    type="password"
-                    class="mt-1 block w-full"
-                    autocomplete="new-password"
-                />
+                <TextInput id="password_confirmation" v-model="form.password_confirmation" type="password"
+                    class="mt-1 block w-full" autocomplete="new-password" placeholder="********" />
 
                 <InputError :message="form.errors.password_confirmation" class="mt-2" />
             </div>
 
             <div class="flex items-center gap-4">
-                <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
+                <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    {{ form.processing ? 'Save...' : 'Save' }}
+                </PrimaryButton>
 
                 <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" class="transition ease-in-out">
                     <p v-if="form.recentlySuccessful" class="text-sm text-gray-600 dark:text-gray-400">Saved.</p>
