@@ -21,21 +21,12 @@
     @apply bg-gray-800/80 dark:bg-white/80
 }
 
-
-.scrollbar-sidebar::-webkit-scrollbar {
-    @apply w-1 h-1.5 bg-gray-800 dark:bg-white;
-}
-
-.scrollbar-sidebar::-webkit-scrollbar-track {
-    @apply bg-gray-100 dark:bg-gray-900
-}
-
 .scrollbar-sidebar::-webkit-scrollbar {
     @apply w-1 h-1 bg-gray-800 dark:bg-gray-300;
 }
 
 .scrollbar-sidebar::-webkit-scrollbar-track {
-    @apply bg-white dark:bg-gray-800
+    @apply bg-gray-800
 }
 
 .scrollbar-sidebar::-webkit-scrollbar-thumb {
@@ -43,5 +34,21 @@
 }
 
 .scrollbar-sidebar::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-800/80 dark:bg-white/80
+    @apply bg-white/80
+}
+
+.scrollbar-table::-webkit-scrollbar {
+    @apply w-1.5 h-1.5 bg-gray-800 dark:bg-white;
+}
+
+.scrollbar-table::-webkit-scrollbar-track {
+    @apply bg-white dark:bg-gray-800
+}
+
+.scrollbar-table::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 dark:bg-gray-300 rounded
+}
+
+.scrollbar-table::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-800/80 dark:bg-white
 }

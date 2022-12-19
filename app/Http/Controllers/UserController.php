@@ -29,6 +29,7 @@ class UserController extends Controller
         $this->validate($request, [
             'field' => ['in:name,email,created_at,updated_at,email_verified_at'],
             'order' => ['in:asc,desc'],
+            'perPage' => ['string'],
         ]);
 
         $users = User::query();
@@ -39,10 +40,12 @@ class UserController extends Controller
         if ($request->has(['field', 'order'])) {
             $users->orderBy($request->field, $request->order);
         }
+        $perPage = $request->has('perPage') ? $request->perPage : 10;
         return Inertia::render('User/Index', [
             'title'         => 'User',
             'filters'       => $request->all(['search', 'field', 'order']),
-            'users'         => $users->paginate(10),
+            'perPage'       => $perPage,
+            'users'         => $users->paginate($perPage),
             'breadcrumbs'   => [['label' => 'User', 'href' => route('user.index')]],
         ]);
     }
