@@ -43,6 +43,7 @@ class HandleInertiaRequests extends Middleware
             ],
             'auth' => [
                 'user' => $request->user(),
+                'can' => $request->user() ? $request->user()->getPermissionArray() : [],
             ],
             'app' => [
                 'name' => config('app.name'),

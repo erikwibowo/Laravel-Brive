@@ -88,7 +88,7 @@ const select = () => {
         <div class="space-y-4">
             <div class="px-4 sm:px-0">
                 <div class="rounded-lg overflow-hidden w-fit">
-                    <PrimaryButton class="rounded-none" @click="data.createOpen = true">
+                    <PrimaryButton v-show="can(['create permission'])" class="rounded-none" @click="data.createOpen = true">
                         Add
                     </PrimaryButton>
                     <Create :show="data.createOpen" @close="data.createOpen = false" />
@@ -101,7 +101,7 @@ const select = () => {
                 <div class="flex justify-between p-2">
                     <div class="flex space-x-2">
                         <SelectInput v-model="data.params.perPage" :dataSet="data.dataSet" />
-                        <DangerButton @click="data.deleteBulkOpen = true" v-show="data.selectedId.length != 0" class="px-3 py-1.5"
+                        <DangerButton @click="data.deleteBulkOpen = true" v-show="data.selectedId.length != 0 && can(['delete permission'])" class="px-3 py-1.5"
                             v-tooltip="'Delete All Selected'">
                             <TrashIcon class="w-5 h-5" />
                         </DangerButton>
@@ -160,12 +160,12 @@ const select = () => {
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">
                                     <div class="flex justify-center items-center">
                                         <div class="rounded-md overflow-hidden">
-                                            <PrimaryButton type="button"
+                                            <PrimaryButton v-show="can(['update permission'])" type="button"
                                                 @click="(data.editOpen = true), (data.permission = permission)"
                                                 class="px-2 py-1.5 rounded-none" v-tooltip="'Edit'">
                                                 <PencilIcon class="w-4 h-4" />
                                             </PrimaryButton>
-                                            <DangerButton type="button"
+                                            <DangerButton v-show="can(['delete permission'])" type="button"
                                                 @click="(data.deleteOpen = true), (data.permission = permission)"
                                                 class="px-2 py-1.5 rounded-none" v-tooltip="'Delete'">
                                                 <TrashIcon class="w-4 h-4" />

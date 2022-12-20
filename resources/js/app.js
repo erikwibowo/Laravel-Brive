@@ -19,6 +19,18 @@ createInertiaApp({
             .use(FloatingVue)
             .use(plugin)
             .use(ZiggyVue, Ziggy)
+            .mixin({
+                methods: {
+                    can: function (permissions) {
+                        var allPermissions = this.$page.props.auth.can;
+                        var hasPermission = false;
+                        permissions.forEach(function (item) {
+                            if (allPermissions[item]) hasPermission = true;
+                        });
+                        return hasPermission;
+                    },
+                },
+            })
             .mount(el);
     },
 });

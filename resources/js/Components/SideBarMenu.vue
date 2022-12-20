@@ -35,27 +35,27 @@ import { Link } from "@inertiajs/inertia-vue3";
                 <span class="ml-3">Dashboard</span>
                 </Link>
             </li>
-            <li class="py-2">
+            <li v-show="can(['read user'])" class="py-2">
                 <p>DATA</p>
             </li>
-            <li class="bg-primary text-white rounded-lg hover:bg-primary"
+            <li v-show="can(['read user'])" class="bg-primary text-white rounded-lg hover:bg-primary"
                 :class="{ 'bg-gray-700': !route().current('user.index') }">
                 <Link :href="route('user.index')" class="flex items-center py-2 px-4">
                 <UserIcon class="w-6 h-5" />
                 <span class="ml-3">User</span>
                 </Link>
             </li>
-            <li class="py-2">
+            <li v-show="can(['read role','read permission'])" class="py-2">
                 <p>ACCESS</p>
             </li>
-            <li class="bg-primary text-white rounded-lg hover:bg-primary"
+            <li v-show="can(['read role'])" class="bg-primary text-white rounded-lg hover:bg-primary"
                 :class="{ 'bg-gray-700': !route().current('role.index') }">
                 <Link :href="route('role.index')" class="flex items-center py-2 px-4">
                 <KeyIcon class="w-6 h-5" />
                 <span class="ml-3">Role</span>
                 </Link>
             </li>
-            <li class="bg-primary text-white rounded-lg hover:bg-primary"
+            <li v-show="can(['read permission'])" class="bg-primary text-white rounded-lg hover:bg-primary"
                 :class="{ 'bg-gray-700': !route().current('permission.index') }">
                 <Link :href="route('permission.index')" class="flex items-center py-2 px-4">
                 <ShieldCheckIcon class="w-6 h-5" />
