@@ -26,7 +26,6 @@
                 <button @click="toggle" type="button"
                     class="ml-auto bg-white/20 text-white rounded-lg focus:ring-2 focus:ring-white/50 p-1.5 hover:bg-white/30 h-8 w-8">
                     <XMarkIcon class="w-5 h-5" />
-                    x
                 </button>
             </div>
         </div>

@@ -1,0 +1,37 @@
+<script setup>
+import DangerButton from '@/Components/DangerButton.vue';
+import Modal from '@/Components/Modal.vue';
+import SecondaryButton from '@/Components/SecondaryButton.vue';
+import { useForm } from '@inertiajs/inertia-vue3';
+
+const props = defineProps({
+    show: Boolean,
+    role: Object,
+})
+
+const emit = defineEmits(["close"]);
+
+</script>
+
+<template>
+    <section class="space-y-6">
+        <Modal :show="props.show" @close="emit('close')" :maxWidth="'2xl'">
+            <div class="p-6 text-gray-900 dark:text-gray-100">
+                <h2 class="text-lg font-medium">
+                    Permission
+                </h2>
+                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                    All permission role <b>{{ props.role?.name }}</b>
+                </p>
+                <div class="mt-6 grid grid-cols-4">
+                    <div v-for="(permission, index) in props.role?.permissions" :key="index" class="py-2 border-t border-gray-200 dark:border-gray-700">
+                        {{ permission.name }}
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-end">
+                    <SecondaryButton @click="emit('close')"> Close </SecondaryButton>
+                </div>
+            </div>
+        </Modal>
+    </section>
+</template>

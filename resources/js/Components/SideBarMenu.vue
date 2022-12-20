@@ -2,7 +2,9 @@
 import {
     HomeIcon,
     UserIcon,
-    CheckBadgeIcon
+    CheckBadgeIcon,
+    KeyIcon,
+    ShieldCheckIcon
 } from "@heroicons/vue/24/solid";
 import { Link } from "@inertiajs/inertia-vue3";
 
@@ -41,6 +43,20 @@ import { Link } from "@inertiajs/inertia-vue3";
                 <Link :href="route('user.index')" class="flex items-center py-2 px-4">
                 <UserIcon class="w-6 h-5" />
                 <span class="ml-3">User</span>
+                </Link>
+            </li>
+            <li class="bg-primary text-white rounded-lg hover:bg-primary"
+                :class="{ 'bg-gray-700': !route().current('role.index') }">
+                <Link :href="route('role.index')" class="flex items-center py-2 px-4">
+                <KeyIcon class="w-6 h-5" />
+                <span class="ml-3">Role</span>
+                </Link>
+            </li>
+            <li class="bg-primary text-white rounded-lg hover:bg-primary"
+                :class="{ 'bg-gray-700': !route().current('permission.index') }">
+                <Link :href="route('permission.index')" class="flex items-center py-2 px-4">
+                <ShieldCheckIcon class="w-6 h-5" />
+                <span class="ml-3">Permission</span>
                 </Link>
             </li>
         </ul>

@@ -4,11 +4,13 @@ import InputLabel from '@/Components/InputLabel.vue';
 import Modal from '@/Components/Modal.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
+import SelectInput from '@/Components/SelectInput.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/inertia-vue3';
 
 const props = defineProps({
     show: Boolean,
+    roles: Object,
 })
 
 const emit = defineEmits(["close"]);
@@ -18,6 +20,7 @@ const form = useForm({
     email: '',
     password: '',
     password_confirmation: '',
+    role: 'superadmin',
 })
 
 const create = () => {
@@ -31,6 +34,8 @@ const create = () => {
         onFinish: () => null,
     })
 }
+
+const roles = props.roles.map(role => ({ label: role.name, value: role.name }))
 
 </script>
 
@@ -65,6 +70,12 @@ const create = () => {
                         <TextInput id="password_confirmation" type="password" class="mt-1 block w-full"
                             v-model="form.password_confirmation" placeholder="********" />
                         <InputError class="mt-2" :message="form.errors.password_confirmation" />
+                    </div>
+                    <div>
+                        <InputLabel for="role" value="Role" />
+                        <SelectInput id="role" class="mt-1 block w-full" v-model="form.role" required :dataSet="roles">
+                        </SelectInput>
+                        <InputError class="mt-2" :message="form.errors.role" />
                     </div>
                 </div>
                 <div class="flex justify-end">

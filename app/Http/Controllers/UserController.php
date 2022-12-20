@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserIndexRequest;
+use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,10 +19,10 @@ class UserController extends Controller
     public function __construct()
     {
 
-        $this->middleware('permission:create user', ['only' => ['create','store']]);
+        $this->middleware('permission:create user', ['only' => ['create', 'store']]);
         $this->middleware('permission:read user', ['only' => ['index', 'show']]);
         $this->middleware('permission:update user', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:delete user', ['only' => ['destroy','destroyBulk']]);
+        $this->middleware('permission:delete user', ['only' => ['destroy', 'destroyBulk']]);
     }
 
     /**
@@ -27,14 +30,8 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(UserIndexRequest $request)
     {
-        $this->validate($request, [
-            'field' => ['in:name,email,created_at,updated_at'],
-            'order' => ['in:asc,desc'],
-            'perPage' => ['numeric'],
-        ]);
-
         $users = User::latest();
         if ($request->has('search')) {
             $users->where('name', 'LIKE', "%" . $request->search . "%");
@@ -48,7 +45,7 @@ class UserController extends Controller
             'title'         => 'User',
             'filters'       => $request->all(['search', 'field', 'order']),
             'perPage'       => (int) $perPage,
-            'users'         => $users->paginate($perPage),
+            'users'         => $users->with('roles')->paginate($perPage),
             'roles'         => Role::get(),
             'breadcrumbs'   => [['label' => 'User', 'href' => route('user.index')]],
         ]);
@@ -70,22 +67,20 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:' . User::class,
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-
+        DB::beginTransaction();
         try {
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
+            $user->assignRole($request->role);
+            DB::commit();
             return back()->with('success', $user->name . ' created successfully');
         } catch (\Throwable $th) {
+            DB::rollback();
             return back()->with('error', 'Create failed ' . $th->getMessage());
         }
     }
@@ -119,14 +114,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
-        $this->validate($request, [
-            'name'                  => ['required', 'string', 'max:255'],
-            'email'                 => 'unique:users,email,' . $id,
-            'password'              => ['nullable', 'confirmed', Rules\Password::defaults()],
-            'password_confirmation' => 'sometimes|required_with:password|same:password'
-        ]);
         DB::beginTransaction();
         try {
             $user = User::findOrFail($id);
@@ -135,6 +124,7 @@ class UserController extends Controller
                 'email'     => $request->email,
                 'password'  => $request->password ? Hash::make($request->password) : $user->password,
             ]);
+            $user->syncRoles($request->role);
             DB::commit();
             return back()->with('success', $user->name . ' updated successfully');
         } catch (\Throwable $th) {
@@ -149,9 +139,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        $user = User::findOrFail($id);
         try {
             $user->delete();
             return back()->with('success', $user->name . ' deleted successfully');
