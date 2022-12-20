@@ -11,62 +11,100 @@ import { _, pickBy, debounce } from "lodash";
 import { Inertia } from '@inertiajs/inertia';
 import Pagination from '@/Components/Pagination.vue';
 import { ChevronUpDownIcon, PencilIcon, TrashIcon } from '@heroicons/vue/24/solid';
+import Create from '@/Pages/User/Create.vue';
+import Edit from '@/Pages/User/Edit.vue';
+import Delete from '@/Pages/User/Delete.vue';
+import DeleteBulk from '@/Pages/User/DeleteBulk.vue';
+import Checkbox from '@/Components/Checkbox.vue';
 
 const props = defineProps({
     title: String,
     filters: Object,
     users: Object,
     breadcrumbs: Object,
-    perPage: String
-});
+    perPage: Number
+})
 const data = reactive({
     params: {
         search: props.filters.search,
         field: props.filters.field,
         order: props.filters.order,
-        perPage: parseInt(props.perPage),
+        perPage: props.perPage,
     },
+    selectedId: [],
+    multipleSelect: false,
+    createOpen: false,
+    editOpen: false,
+    deleteOpen: false,
+    deleteBulkOpen: false,
+    user: null,
     dataSet: [
         { label: '10', 'value': 10 },
         { label: '20', 'value': 20 },
         { label: '50', 'value': 50 },
         { label: '100', 'value': 100 },
     ]
-});
+})
 
 const order = (field) => {
-    data.params.field = field;
-    data.params.order = data.params.order === "asc" ? "desc" : "asc";
+    data.params.field = field
+    data.params.order = data.params.order === "asc" ? "desc" : "asc"
 }
 
 watch(() => _.cloneDeep(data.params), debounce(() => {
-    let params = pickBy(data.params);
+    let params = pickBy(data.params)
     Inertia.get(route("user.index"), params, {
         replace: true,
         preserveState: true,
+        preserveScroll: true,
     })
-}, 150)
-)
+}, 150))
+
+const selectAll = (event) => {
+    if (event.target.checked === false) {
+        data.selectedId = []
+    } else {
+        props.users?.data.forEach((user) => {
+            data.selectedId.push(user.id)
+        })
+    }
+}
+const select = () => {
+    if (props.users?.data.length == data.selectedId.length) {
+        data.multipleSelect = true
+    } else {
+        data.multipleSelect = false
+    }
+}
+
 </script>
 
 <template>
 
-    <Head title="Profile" />
+    <Head :title="props.title" />
 
     <AuthenticatedLayout>
         <Breadcrumb :title="title" :breadcrumbs="breadcrumbs" />
         <div class="space-y-4">
             <div class="px-4 sm:px-0">
                 <div class="rounded-lg overflow-hidden w-fit">
-                    <PrimaryButton class="rounded-none">
+                    <PrimaryButton class="rounded-none" @click="data.createOpen = true">
                         Add
                     </PrimaryButton>
+                    <Create :show="data.createOpen" @close="data.createOpen = false" />
+                    <Edit :show="data.editOpen" @close="data.editOpen = false" :user="data.user" />
+                    <Delete :show="data.deleteOpen" @close="data.deleteOpen = false" :user="data.user" />
+                    <DeleteBulk :show="data.deleteBulkOpen" @close="data.deleteBulkOpen = false, data.multipleSelect = false, data.selectedId = []" :selectedId="data.selectedId" />
                 </div>
             </div>
             <div class="relative bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="flex justify-between p-2">
-                    <div>
+                    <div class="flex space-x-2">
                         <SelectInput v-model="data.params.perPage" :dataSet="data.dataSet" />
+                        <DangerButton @click="data.deleteBulkOpen = true" v-show="data.selectedId.length != 0" class="px-3 py-1.5"
+                            v-tooltip="'Delete All Selected'">
+                            <TrashIcon class="w-5 h-5" />
+                        </DangerButton>
                     </div>
                     <TextInput v-model="data.params.search" type="text" class="block w-3/6 md:w-2/6 lg:w-1/6 rounded-lg"
                         placeholder="Search..." />
@@ -75,26 +113,29 @@ watch(() => _.cloneDeep(data.params), debounce(() => {
                     <table class="w-full">
                         <thead class="uppercase text-sm border-t border-gray-200 dark:border-gray-700">
                             <tr class="dark:bg-gray-900/50 text-left">
+                                <th class="px-2 py-4 text-center">
+                                    <Checkbox v-model:checked="data.multipleSelect" @change="selectAll" />
+                                </th>
                                 <th class="px-2 py-4 text-center">#</th>
-                                <th class="px-2 py-4">
+                                <th class="px-2 py-4 cursor-pointer" v-on:click="order('name')">
                                     <div class="flex justify-between items-center">
                                         <span>Name</span>
                                         <ChevronUpDownIcon class="w-4 h-4" />
                                     </div>
                                 </th>
-                                <th class="px-2 py-4">
+                                <th class="px-2 py-4 cursor-pointer" v-on:click="order('email')">
                                     <div class="flex justify-between items-center">
                                         <span>Email</span>
                                         <ChevronUpDownIcon class="w-4 h-4" />
                                     </div>
                                 </th>
-                                <th class="px-2 py-4">
+                                <th class="px-2 py-4 cursor-pointer" v-on:click="order('created_at')">
                                     <div class="flex justify-between items-center">
                                         <span>Created</span>
                                         <ChevronUpDownIcon class="w-4 h-4" />
                                     </div>
                                 </th>
-                                <th class="px-2 py-4">
+                                <th class="px-2 py-4 cursor-pointer" v-on:click="order('updated_at')">
                                     <div class="flex justify-between items-center">
                                         <span>Updated</span>
                                         <ChevronUpDownIcon class="w-4 h-4" />
@@ -106,6 +147,11 @@ watch(() => _.cloneDeep(data.params), debounce(() => {
                         <tbody>
                             <tr v-for="(user, index) in users.data" :key="index"
                                 class="border-t border-gray-200 dark:border-gray-700 hover:bg-gray-200/30 hover:dark:bg-gray-900/20">
+                                <td class="whitespace-nowrap px-2 py-3 text-center">
+                                    <input
+                                        class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-primary shadow-sm focus:ring-primary/80 dark:focus:ring-primary dark:focus:ring-offset-gray-800"
+                                        type="checkbox" @change="select" :value="user.id" v-model="data.selectedId" />
+                                </td>
                                 <td class="whitespace-nowrap px-2 py-3 text-center">{{ ++index }}</td>
                                 <td class="whitespace-nowrap px-2 py-3">{{ user.name }}</td>
                                 <td class="whitespace-nowrap px-2 py-3">{{ user.email }}</td>
@@ -114,10 +160,14 @@ watch(() => _.cloneDeep(data.params), debounce(() => {
                                 <td class="whitespace-nowrap">
                                     <div class="flex justify-center items-center">
                                         <div class="rounded-md overflow-hidden">
-                                            <PrimaryButton class="px-2 py-1.5 rounded-none" v-tooltip="'Edit'">
+                                            <PrimaryButton type="button"
+                                                @click="(data.editOpen = true), (data.user = user)"
+                                                class="px-2 py-1.5 rounded-none" v-tooltip="'Edit'">
                                                 <PencilIcon class="w-4 h-4" />
                                             </PrimaryButton>
-                                            <DangerButton class="px-2 py-1.5 rounded-none" v-tooltip="'Delete'">
+                                            <DangerButton type="button"
+                                                @click="(data.deleteOpen = true), (data.user = user)"
+                                                class="px-2 py-1.5 rounded-none" v-tooltip="'Delete'">
                                                 <TrashIcon class="w-4 h-4" />
                                             </DangerButton>
                                         </div>

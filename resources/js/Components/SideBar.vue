@@ -39,7 +39,7 @@ const emit = defineEmits(['close']);
             <TransitionChild enter="transition-opacity ease-linear duration-200" enter-from="opacity-0"
                 enter-to="opacity-100" leave="transition-opacity ease-linear duration-200" leave-from="opacity-100"
                 leave-to="opacity-0" as="template">
-                <DialogOverlay class="fixed inset-0 bg-gray-100/60 dark:bg-gray-800/60 blur-md lg:hidden"></DialogOverlay>
+                <DialogOverlay class="fixed inset-0 bg-gray-500 dark:bg-gray-900 opacity-75 lg:hidden"></DialogOverlay>
             </TransitionChild>
         </Dialog>
     </TransitionRoot>

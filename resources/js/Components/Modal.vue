@@ -12,7 +12,7 @@ const props = defineProps({
     },
     closeable: {
         type: Boolean,
-        default: true,
+        default: false,
     },
 });
 
@@ -64,7 +64,7 @@ const maxWidthClass = computed(() => {
         <transition leave-active-class="duration-200">
             <div v-show="show" class="fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50" scroll-region>
                 <transition
-                    enter-active-class="ease-out duration-300"
+                    enter-active-class="ease-out duration-200"
                     enter-from-class="opacity-0"
                     enter-to-class="opacity-100"
                     leave-active-class="ease-in duration-200"
@@ -77,7 +77,7 @@ const maxWidthClass = computed(() => {
                 </transition>
 
                 <transition
-                    enter-active-class="ease-out duration-300"
+                    enter-active-class="ease-out duration-200"
                     enter-from-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                     enter-to-class="opacity-100 translate-y-0 sm:scale-100"
                     leave-active-class="ease-in duration-200"
