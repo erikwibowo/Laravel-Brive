@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Role;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RoleIndexRequest extends FormRequest
+class RoleStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,8 @@ class RoleIndexRequest extends FormRequest
     public function rules()
     {
         return [
-            'field' => ['in:name,guard_name,created_at,updated_at'],
-            'order' => ['in:asc,desc'],
-            'perPage' => ['numeric'],
+            'name'          => ['required'],
+            'permissions'   => ['required', 'array'],
         ];
     }
 }

@@ -11,17 +11,15 @@ import { _, pickBy, debounce } from "lodash";
 import { Inertia } from '@inertiajs/inertia';
 import Pagination from '@/Components/Pagination.vue';
 import { ChevronUpDownIcon, PencilIcon, TrashIcon } from '@heroicons/vue/24/solid';
-import Create from '@/Pages/Role/Create.vue';
-import Edit from '@/Pages/Role/Edit.vue';
-import Delete from '@/Pages/Role/Delete.vue';
-import DeleteBulk from '@/Pages/Role/DeleteBulk.vue';
+import Create from '@/Pages/Permission/Create.vue';
+import Edit from '@/Pages/Permission/Edit.vue';
+import Delete from '@/Pages/Permission/Delete.vue';
+import DeleteBulk from '@/Pages/Permission/DeleteBulk.vue';
 import Checkbox from '@/Components/Checkbox.vue';
-import Permission from '@/Pages/Role/Permission.vue';
 
 const props = defineProps({
     title: String,
     filters: Object,
-    roles: Object,
     permissions: Object,
     breadcrumbs: Object,
     perPage: Number,
@@ -39,8 +37,7 @@ const data = reactive({
     editOpen: false,
     deleteOpen: false,
     deleteBulkOpen: false,
-    permissionOpen: false,
-    role: null,
+    permission: null,
     dataSet: [
         { label: '10', 'value': 10 },
         { label: '20', 'value': 20 },
@@ -56,7 +53,7 @@ const order = (field) => {
 
 watch(() => _.cloneDeep(data.params), debounce(() => {
     let params = pickBy(data.params)
-    Inertia.get(route("role.index"), params, {
+    Inertia.get(route("permission.index"), params, {
         replace: true,
         preserveState: true,
         preserveScroll: true,
@@ -67,13 +64,13 @@ const selectAll = (event) => {
     if (event.target.checked === false) {
         data.selectedId = []
     } else {
-        props.roles?.data.forEach((role) => {
-            data.selectedId.push(role.id)
+        props.permissions?.data.forEach((permission) => {
+            data.selectedId.push(permission.id)
         })
     }
 }
 const select = () => {
-    if (props.roles?.data.length == data.selectedId.length) {
+    if (props.permissions?.data.length == data.selectedId.length) {
         data.multipleSelect = true
     } else {
         data.multipleSelect = false
@@ -94,22 +91,18 @@ const select = () => {
                     <PrimaryButton class="rounded-none" @click="data.createOpen = true">
                         Add
                     </PrimaryButton>
-                    <Create :show="data.createOpen" @close="data.createOpen = false" :permissions="props.permissions" />
-                    <Edit :show="data.editOpen" @close="data.editOpen = false" :role="data.role"
-                        :permissions="props.permissions" />
-                    <Delete :show="data.deleteOpen" @close="data.deleteOpen = false" :role="data.role" />
-                    <DeleteBulk :show="data.deleteBulkOpen"
-                        @close="data.deleteBulkOpen = false, data.multipleSelect = false, data.selectedId = []"
-                        :selectedId="data.selectedId" />
-                    <Permission :show="data.permissionOpen" @close="data.permissionOpen = false" :role="data.role" />
+                    <Create :show="data.createOpen" @close="data.createOpen = false" />
+                    <Edit :show="data.editOpen" @close="data.editOpen = false" :permission="data.permission" />
+                    <Delete :show="data.deleteOpen" @close="data.deleteOpen = false" :permission="data.permission" />
+                    <DeleteBulk :show="data.deleteBulkOpen" @close="data.deleteBulkOpen = false, data.multipleSelect = false, data.selectedId = []" :selectedId="data.selectedId" />
                 </div>
             </div>
             <div class="relative bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="flex justify-between p-2">
                     <div class="flex space-x-2">
                         <SelectInput v-model="data.params.perPage" :dataSet="data.dataSet" />
-                        <DangerButton @click="data.deleteBulkOpen = true" v-show="data.selectedId.length != 0"
-                            class="px-3 py-1.5" v-tooltip="'Delete All Selected'">
+                        <DangerButton @click="data.deleteBulkOpen = true" v-show="data.selectedId.length != 0" class="px-3 py-1.5"
+                            v-tooltip="'Delete All Selected'">
                             <TrashIcon class="w-5 h-5" />
                         </DangerButton>
                     </div>
@@ -130,13 +123,12 @@ const select = () => {
                                         <ChevronUpDownIcon class="w-4 h-4" />
                                     </div>
                                 </th>
-                                <th class="px-2 py-4 cursor-pointer" v-on:click="order('email')">
+                                <th class="px-2 py-4 cursor-pointer" v-on:click="order('guard')">
                                     <div class="flex justify-between items-center">
                                         <span>Guard</span>
                                         <ChevronUpDownIcon class="w-4 h-4" />
                                     </div>
                                 </th>
-                                <th class="px-2 py-4">Permission</th>
                                 <th class="px-2 py-4 cursor-pointer" v-on:click="order('created_at')">
                                     <div class="flex justify-between items-center">
                                         <span>Created</span>
@@ -153,33 +145,28 @@ const select = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(role, index) in roles.data" :key="index"
+                            <tr v-for="(permission, index) in permissions.data" :key="index"
                                 class="border-t border-gray-200 dark:border-gray-700 hover:bg-gray-200/30 hover:dark:bg-gray-900/20">
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3 text-center">
                                     <input
                                         class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-primary shadow-sm focus:ring-primary/80 dark:focus:ring-primary dark:focus:ring-offset-gray-800"
-                                        type="checkbox" @change="select" :value="role.id" v-model="data.selectedId" />
+                                        type="checkbox" @change="select" :value="permission.id" v-model="data.selectedId" />
                                 </td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3 text-center">{{ ++index }}</td>
-                                <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ role.name }}</td>
-                                <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ role.guard_name }}</td>
-                                <td v-tooltip="'Click to details'" v-if="role.permissions.length != 0"
-                                    @click="(data.permissionOpen = true), (data.role = role)"
-                                    class="whitespace-nowrap py-4 px-2 sm:py-3 cursor-pointer text-blue-600 dark:text-blue-400 font-bold underline">
-                                    {{ role.permissions.length }} permission</td>
-                                <td v-else class="whitespace-nowrap py-4 px-2 sm:py-3">No permission</td>
-                                <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ role.created_at }}</td>
-                                <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ role.updated_at }}</td>
+                                <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ permission.name }}</td>
+                                <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ permission.guard_name }}</td>
+                                <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ permission.created_at }}</td>
+                                <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ permission.updated_at }}</td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">
                                     <div class="flex justify-center items-center">
                                         <div class="rounded-md overflow-hidden">
                                             <PrimaryButton type="button"
-                                                @click="(data.editOpen = true), (data.role = role)"
+                                                @click="(data.editOpen = true), (data.permission = permission)"
                                                 class="px-2 py-1.5 rounded-none" v-tooltip="'Edit'">
                                                 <PencilIcon class="w-4 h-4" />
                                             </PrimaryButton>
                                             <DangerButton type="button"
-                                                @click="(data.deleteOpen = true), (data.role = role)"
+                                                @click="(data.deleteOpen = true), (data.permission = permission)"
                                                 class="px-2 py-1.5 rounded-none" v-tooltip="'Delete'">
                                                 <TrashIcon class="w-4 h-4" />
                                             </DangerButton>
@@ -191,7 +178,7 @@ const select = () => {
                     </table>
                 </div>
                 <div class="flex justify-between items-center p-2 border-t border-gray-200 dark:border-gray-700">
-                    <Pagination :links="props.roles" :filters="data.params" />
+                    <Pagination :links="props.permissions" :filters="data.params" />
                 </div>
             </div>
         </div>
