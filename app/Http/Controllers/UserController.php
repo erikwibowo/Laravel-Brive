@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,15 +13,14 @@ use Illuminate\Validation\Rules;
 class UserController extends Controller
 {
 
-    // public function __construct()
-    // {
+    public function __construct()
+    {
 
-    //     $this->middleware('permission:create user', ['only' => ['create','store']]);
-    //     $this->middleware('permission:read user', ['only' => ['index', 'show']]);
-    //     $this->middleware('permission:update user', ['only' => ['edit', 'update']]);
-    //     $this->middleware('permission:delete user', ['only' => ['destroy']]);
-    //     $this->middleware('permission:update profile', ['only' => ['update_profile']]);
-    // }
+        $this->middleware('permission:create user', ['only' => ['create','store']]);
+        $this->middleware('permission:read user', ['only' => ['index', 'show']]);
+        $this->middleware('permission:update user', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete user', ['only' => ['destroy','destroyBulk']]);
+    }
 
     /**
      * Display a listing of the resource.
@@ -49,6 +49,7 @@ class UserController extends Controller
             'filters'       => $request->all(['search', 'field', 'order']),
             'perPage'       => (int) $perPage,
             'users'         => $users->paginate($perPage),
+            'roles'         => Role::get(),
             'breadcrumbs'   => [['label' => 'User', 'href' => route('user.index')]],
         ]);
     }
