@@ -36,13 +36,20 @@ class RoleController extends Controller
         if ($request->has(['field', 'order'])) {
             $roles->orderBy($request->field, $request->order);
         }
+        $roles->with('permissions');
+        $role = auth()->user()->roles->pluck('name')[0];
+        $permissions = Permission::latest();
+        if ($role != 'superadmin') {
+            $permissions = Permission::whereNotIn('name', ['create permission', 'read permission', 'update permission', 'delete permission'])->latest();
+            $roles->where('name', '<>', 'superadmin');
+        }
         $perPage = $request->has('perPage') ? $request->perPage : 10;
         return Inertia::render('Role/Index', [
             'title'         => 'Role',
             'filters'       => $request->all(['search', 'field', 'order']),
             'perPage'       => (int) $perPage,
-            'roles'         => $roles->with('permissions')->paginate($perPage),
-            'permissions'   => Permission::latest()->get(),
+            'roles'         => $roles->paginate($perPage),
+            'permissions'   => $permissions->get(),
             'breadcrumbs'   => [['label' => 'Role', 'href' => route('role.index')]],
         ]);
     }

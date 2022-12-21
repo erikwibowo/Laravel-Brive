@@ -41,12 +41,20 @@ class UserController extends Controller
             $users->orderBy($request->field, $request->order);
         }
         $perPage = $request->has('perPage') ? $request->perPage : 10;
+        $role = auth()->user()->roles->pluck('name')[0];
+        $roles = Role::get();
+        if ($role != 'superadmin') {
+            $users->whereHas('roles', function ($query) {
+                return $query->where('name', '<>', 'superadmin');
+            });
+            $roles = Role::where('name', '<>', 'superadmin')->get();
+        }
         return Inertia::render('User/Index', [
             'title'         => 'User',
             'filters'       => $request->all(['search', 'field', 'order']),
             'perPage'       => (int) $perPage,
             'users'         => $users->with('roles')->paginate($perPage),
-            'roles'         => Role::get(),
+            'roles'         => $roles,
             'breadcrumbs'   => [['label' => 'User', 'href' => route('user.index')]],
         ]);
     }

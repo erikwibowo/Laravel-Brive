@@ -23,9 +23,9 @@ const emit = defineEmits(["close"]);
                 <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
                     All permission role <b>{{ props.role?.name }}</b>
                 </p>
-                <div class="mt-6 grid grid-cols-4">
-                    <div v-for="(permission, index) in props.role?.permissions" :key="index" class="py-2 border-t border-gray-200 dark:border-gray-700">
-                        {{ permission.name }}
+                <div class="my-6 grid grid-cols-2 sm:grid-cols-3">
+                    <div v-for="(permission, index) in props.role?.permissions" :key="index" class="flex justify-between w-full px-4 py-2 ">
+                        {{ ++index+". "+permission.name }}
                     </div>
                 </div>
                 <div class="mt-6 flex justify-end">

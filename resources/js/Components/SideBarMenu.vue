@@ -7,6 +7,7 @@ import {
     ShieldCheckIcon
 } from "@heroicons/vue/24/solid";
 import { Link } from "@inertiajs/inertia-vue3";
+import ApplicationLogo from "@/Components/ApplicationLogo.vue";
 
 </script>
 <template>
@@ -25,7 +26,7 @@ import { Link } from "@inertiajs/inertia-vue3";
                         v-show="$page.props.auth.user.email_verified_at" />
                 </div>
             </span>
-            <span class="block text-sm font-medium truncate">{{ $page.props.auth.user.email }}</span>
+            <span class="block text-sm font-medium truncate">{{ $page.props.auth.user.roles[0].name }}</span>
         </div>
         <ul class="space-y-2 my-4">
             <li class="bg-primary text-white rounded-lg hover:bg-primary"
@@ -45,7 +46,7 @@ import { Link } from "@inertiajs/inertia-vue3";
                 <span class="ml-3">User</span>
                 </Link>
             </li>
-            <li v-show="can(['read role','read permission'])" class="py-2">
+            <li v-show="can(['read role', 'read permission'])" class="py-2">
                 <p>ACCESS</p>
             </li>
             <li v-show="can(['read role'])" class="bg-primary text-white rounded-lg hover:bg-primary"

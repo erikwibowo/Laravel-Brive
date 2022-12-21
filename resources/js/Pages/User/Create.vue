@@ -20,7 +20,7 @@ const form = useForm({
     email: '',
     password: '',
     password_confirmation: '',
-    role: 'superadmin',
+    role: 'admin',
 })
 
 const create = () => {

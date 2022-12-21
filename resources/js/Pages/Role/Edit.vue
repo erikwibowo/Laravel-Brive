@@ -90,7 +90,7 @@ const select = () => {
                             <Checkbox id="permission-all" v-model:checked="data.multipleSelect" @change="selectAll" />
                             <InputLabel for="permission-all" value="Check all" />
                         </div>
-                        <div class="grid grid-cols-4 gap-2 mt-2">
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-2">
                             <div class="flex items-center justify-start space-x-2" v-for="(permission, index) in props.permissions" :key="index">
                                 <input @change="select"
                                     class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-primary shadow-sm focus:ring-primary/80 dark:focus:ring-primary dark:focus:ring-offset-gray-800"

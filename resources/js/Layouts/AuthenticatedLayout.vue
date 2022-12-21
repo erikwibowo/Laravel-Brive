@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import NavBarVue from '@/Components/NavBar.vue';
 import SideBarVue from "@/Components/SideBar.vue";
 import Toast from '@/Components/Toast.vue';
+import Footer from '@/Components/Footer.vue';
 
 const sidebarOpened = ref(false);
 const emit = defineEmits(['close', 'open']);
@@ -18,6 +19,7 @@ const emit = defineEmits(['close', 'open']);
             <main class="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-10 text-gray-900 dark:text-gray-100 text-sm">
                 <slot />
             </main>
+            <Footer />
         </div>
     </div>
 </template>

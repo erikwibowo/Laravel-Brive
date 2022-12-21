@@ -12,7 +12,7 @@ const emit = defineEmits(["open"])
 
 <template>
     <nav
-        class="bg-gray-800 border-gray-700 text-gray-300 lg:bg-white dark:bg-gray-800 border-b lg:border-gray-100 dark:border-gray-700 lg:text-gray-500 dark:text-gray-300">
+        class="bg-gray-800 border-gray-700 text-gray-300 lg:bg-white dark:bg-gray-900 border-b lg:border-gray-100 dark:border-gray-800 lg:text-gray-500 dark:text-gray-300">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -45,7 +45,7 @@ const emit = defineEmits(["open"])
                                             <UserIcon class="h-4 w-4" />
                                         </button>
                                         <button type="button"
-                                            class="hover:text-gray-400 hover:bg-gray-900 focus:bg-gray-900 focus:text-gray-400 inline-flex items-center justify-center p-2 rounded-md lg:hover:text-gray-500 dark:hover:text-gray-400 lg:hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none lg:focus:bg-gray-100 dark:focus:bg-gray-900 lg:focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out truncate w-fit">
+                                            class="hover:text-gray-400 hover:bg-gray-900 focus:bg-gray-900 focus:text-gray-400 items-center justify-center p-2 rounded-md lg:hover:text-gray-500 dark:hover:text-gray-400 lg:hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none lg:focus:bg-gray-100 dark:focus:bg-gray-900 lg:focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out truncate w-fit hidden sm:inline-flex">
                                             {{ $page.props.auth.user.name.split(' ')[0] }}
                                             <ChevronDownIcon class="ml-2 -mr-0.5 h-4 w-4 fill-current" />
                                         </button>

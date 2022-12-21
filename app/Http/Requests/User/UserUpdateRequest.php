@@ -3,7 +3,6 @@
 namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Password;
 
 class UserUpdateRequest extends FormRequest
@@ -27,7 +26,7 @@ class UserUpdateRequest extends FormRequest
     {
         return [
             'name'                  => ['required', 'string', 'max:255'],
-            'email'                 => 'unique:users,email,' . $this->user,
+            'email'                 => 'required|unique:users,email,' . $this->user,
             'password'              => ['nullable', 'confirmed', Password::defaults()],
             'password_confirmation' => 'sometimes|required_with:password|same:password',
             'role'                  => ['required'],
