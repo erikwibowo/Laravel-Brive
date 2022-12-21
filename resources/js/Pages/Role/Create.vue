@@ -32,6 +32,7 @@ const create = () => {
         onSuccess: () => {
             emit("close")
             form.reset()
+            data.multipleSelect = false
         },
         onError: () => null,
         onFinish: () => null,

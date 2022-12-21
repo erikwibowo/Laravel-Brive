@@ -33,7 +33,7 @@ class PermissionController extends Controller
         $permissions = Permission::latest();
         if ($request->has('search')) {
             $permissions->where('name', 'LIKE', "%" . $request->search . "%");
-            $permissions->orWhere('email', 'LIKE', "%" . $request->search . "%");
+            $permissions->orWhere('guard_name', 'LIKE', "%" . $request->search . "%");
         }
         if ($request->has(['field', 'order'])) {
             $permissions->orderBy($request->field, $request->order);

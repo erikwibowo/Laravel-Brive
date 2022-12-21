@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Role;
 
+use App\Models\Role;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RoleStoreRequest extends FormRequest
@@ -24,7 +25,7 @@ class RoleStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255|unique:roles',
+            'name' => 'required|string|max:255|unique:'.Role::class,
             'permissions'   => ['required', 'array'],
         ];
     }

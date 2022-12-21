@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Permission;
 
+use App\Models\Permission;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PermissionStoreRequest extends FormRequest
@@ -23,7 +24,7 @@ class PermissionStoreRequest extends FormRequest
      */
     public function rules()
     {return [
-        'name' => 'required|string|max:255|unique:permissions',
+        'name' => 'required|string|max:255|unique:'.Permission::class,
     ];
     }
 }
