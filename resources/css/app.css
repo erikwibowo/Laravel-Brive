@@ -52,3 +52,19 @@
 .scrollbar-table::-webkit-scrollbar-thumb:hover {
     @apply bg-gray-800/80 dark:bg-white
 }
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    @apply dark:invert
+}
+input[type="time"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    @apply dark:invert
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-calendar-picker-indicator {
+    @apply dark:invert
+}
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    @apply dark:invert
+}
