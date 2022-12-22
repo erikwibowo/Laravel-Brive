@@ -64,14 +64,16 @@ defineProps({
                 </div>
             </div>
 
-            <div class="flex justify-between mt-4 text-sm text-gray-500">
-                <p>
-                    <a href="https://brive.erikwibowo.com" target="_blank">Laravel Brive</a> ©️
-                    2022-{{ new Date().getFullYear() }}
-                    <a href="https://github.com/erikwibowo" target="_blank" class="text-primary">Erik
-                        Wibowo</a>
-                </p>
-                <div class="ml-4">
+            <div class="sm:flex justify-between mt-4 text-sm text-gray-500">
+                <div class="flex mx-4 sm:mx-0 flex-row justify-center text-center">
+                    <p>
+                        <a href="https://brive.erikwibowo.com" target="_blank">{{ $page.props.app.name }}</a> ©️
+                        {{ new Date().getFullYear() }}
+                        <a href="https://github.com/erikwibowo" target="_blank" class="text-primary">Erik
+                            Wibowo</a>
+                    </p>
+                </div>
+                <div class="flex mx-4 sm:mx-0 justify-center text-center">
                     Laravel v{{ laravelVersion }} (PHP v{{ phpVersion }})
                 </div>
             </div>

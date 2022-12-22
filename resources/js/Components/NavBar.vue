@@ -27,8 +27,8 @@ const emit = defineEmits(["open"])
                     <!-- Logo -->
                     <div class="flex">
                         <Link :href="route('dashboard')" class="flex items-center space-x-2">
-                        <ApplicationLogo class="block h-6 w-auto fill-current" />
-                        <p class="hidden md:block">{{ $page.props.app.name }}</p>
+                        <ApplicationLogo class="hidden md:block h-6 w-auto fill-current" />
+                        <p>{{ $page.props.app.name }}</p>
                         </Link>
                     </div>
                 </div>
