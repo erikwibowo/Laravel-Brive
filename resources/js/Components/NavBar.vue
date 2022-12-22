@@ -47,7 +47,7 @@ const emit = defineEmits(["open"])
                                         <button type="button"
                                             class="hover:text-gray-400 hover:bg-gray-900 focus:bg-gray-900 focus:text-gray-400 items-center justify-center p-2 rounded-md lg:hover:text-gray-500 dark:hover:text-gray-400 lg:hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none lg:focus:bg-gray-100 dark:focus:bg-gray-900 lg:focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out truncate w-fit hidden sm:inline-flex">
                                             {{ $page.props.auth.user.name.split(' ')[0] }}
-                                            <ChevronDownIcon class="ml-2 -mr-0.5 h-4 w-4 fill-current" />
+                                            <ChevronDownIcon class="ml-2 h-4 w-4 fill-current" />
                                         </button>
                                     </span>
                                 </template>
