@@ -2,6 +2,7 @@
 import { Inertia } from "@inertiajs/inertia";
 import { pickBy } from "lodash";
 import { reactive, watchEffect } from "vue";
+import Icon from "@/Components/Icon.vue";
 
 const props = defineProps({
     links: Object,
@@ -37,8 +38,9 @@ watchEffect(() => {
     <div class="ml-2" v-if="links.data.length != 0">
         {{ links.from }}-{{ links.to }} of {{ links.total }}
     </div>
-    <div class="flex mx-auto p-6 text-lg" v-if="links.data.length == 0">
-        <span>No Data</span>
+    <div class="flex flex-col space-y-2 mx-auto p-6 text-lg" v-if="links.data.length == 0">
+        <Icon :name="'nodata'" class="w-auto h-16" />
+        <p>No Data</p>
     </div>
     <div v-if="links.links.length > 3">
         <!-- <ul

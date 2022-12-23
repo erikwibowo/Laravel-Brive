@@ -75,7 +75,7 @@ const closeModal = () => {
 
                     <DangerButton class="ml-3" :class="{ 'opacity-25': form.processing }" :disabled="form.processing"
                         @click="deleteUser">
-                        Delete Account
+                        {{ form.processing ? 'Delete Account...':'Delete Account' }}
                     </DangerButton>
                 </div>
             </div>
