@@ -22,13 +22,13 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
                         </div>
                         <div class="flex justify-between items-center">
                             <p class="text-4xl mr-2 font-bold mb-2">3</p>
-                            <p class="text-md md:text-xl uppercase text-right">Users</p>
+                            <p class="text-md md:text-xl uppercase text-right">{{ lang().label.user }}</p>
                         </div>
                     </div>
                     <div
                         class="bg-blue-600 dark:bg-blue-600/50 rounded-b-none sm:rounded-b-lg p-2 overflow-hidden hover:bg-blue-600/90 dark:hover:bg-blue-600/40">
                         <Link :href="route('user.index')" class="flex justify-between items-center">
-                        <p>More</p>
+                        <p>{{ lang().label.more }}</p>
                         <ChevronRightIcon class="w-5 h-5" />
                         </Link>
                     </div>
@@ -41,13 +41,13 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
                         </div>
                         <div class="flex justify-between items-center">
                             <p class="text-4xl mr-2 font-bold mb-2">3</p>
-                            <p class="text-md md:text-xl uppercase text-right">Roles</p>
+                            <p class="text-md md:text-xl uppercase text-right">{{ lang().label.role }}</p>
                         </div>
                     </div>
                     <div
                         class="bg-green-600 dark:bg-green-600/50 rounded-b-none sm:rounded-b-lg p-2 overflow-hidden hover:bg-green-600/90 dark:hover:bg-green-600/40">
                         <Link :href="route('role.index')" class="flex justify-between items-center">
-                        <p>More</p>
+                        <p>{{ lang().label.more }}</p>
                         <ChevronRightIcon class="w-5 h-5" />
                         </Link>
                     </div>
@@ -60,13 +60,13 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
                         </div>
                         <div class="flex justify-between items-center">
                             <p class="text-4xl mr-2 font-bold mb-2">12</p>
-                            <p class="text-md md:text-xl uppercase text-right">Permissions</p>
+                            <p class="text-md md:text-xl uppercase text-right">{{ lang().label.permission }}</p>
                         </div>
                     </div>
                     <div
                         class="bg-amber-600 dark:bg-amber-600/50 rounded-b-none sm:rounded-b-lg p-2 overflow-hidden hover:bg-amber-600/90 dark:hover:bg-amber-600/40">
                         <Link :href="route('permission.index')" class="flex justify-between items-center">
-                        <p>More</p>
+                        <p>{{ lang().label.more }}</p>
                         <ChevronRightIcon class="w-5 h-5" />
                         </Link>
                     </div>

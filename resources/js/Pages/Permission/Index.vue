@@ -89,7 +89,7 @@ const select = () => {
             <div class="px-4 sm:px-0">
                 <div class="rounded-lg overflow-hidden w-fit">
                     <PrimaryButton v-show="can(['create permission'])" class="rounded-none" @click="data.createOpen = true">
-                        Add
+                        {{ lang().button.add }}
                     </PrimaryButton>
                     <Create :show="data.createOpen" @close="data.createOpen = false" />
                     <Edit :show="data.editOpen" @close="data.editOpen = false" :permission="data.permission" />
@@ -102,12 +102,12 @@ const select = () => {
                     <div class="flex space-x-2">
                         <SelectInput v-model="data.params.perPage" :dataSet="data.dataSet" />
                         <DangerButton @click="data.deleteBulkOpen = true" v-show="data.selectedId.length != 0 && can(['delete permission'])" class="px-3 py-1.5"
-                            v-tooltip="'Delete All Selected'">
+                            v-tooltip="lang().tooltip.delete_selected">
                             <TrashIcon class="w-5 h-5" />
                         </DangerButton>
                     </div>
                     <TextInput v-model="data.params.search" type="text" class="block w-3/6 md:w-2/6 lg:w-1/6 rounded-lg"
-                        placeholder="Search..." />
+                        :placeholder="lang().placeholder.search" />
                 </div>
                 <div class="overflow-x-auto scrollbar-table">
                     <table class="w-full">
@@ -119,7 +119,7 @@ const select = () => {
                                 <th class="px-2 py-4 text-center">#</th>
                                 <th class="px-2 py-4 cursor-pointer" v-on:click="order('name')">
                                     <div class="flex justify-between items-center">
-                                        <span>Name</span>
+                                        <span>{{ lang().label.name }}</span>
                                         <ChevronUpDownIcon class="w-4 h-4" />
                                     </div>
                                 </th>
@@ -131,13 +131,13 @@ const select = () => {
                                 </th>
                                 <th class="px-2 py-4 cursor-pointer" v-on:click="order('created_at')">
                                     <div class="flex justify-between items-center">
-                                        <span>Created</span>
+                                        <span>{{ lang().label.created }}</span>
                                         <ChevronUpDownIcon class="w-4 h-4" />
                                     </div>
                                 </th>
                                 <th class="px-2 py-4 cursor-pointer" v-on:click="order('updated_at')">
                                     <div class="flex justify-between items-center">
-                                        <span>Updated</span>
+                                        <span>{{ lang().label.updated }}</span>
                                         <ChevronUpDownIcon class="w-4 h-4" />
                                     </div>
                                 </th>
@@ -162,12 +162,12 @@ const select = () => {
                                         <div class="rounded-md overflow-hidden">
                                             <PrimaryButton v-show="can(['update permission'])" type="button"
                                                 @click="(data.editOpen = true), (data.permission = permission)"
-                                                class="px-2 py-1.5 rounded-none" v-tooltip="'Edit'">
+                                                class="px-2 py-1.5 rounded-none" v-tooltip="lang().tooltip.edit">
                                                 <PencilIcon class="w-4 h-4" />
                                             </PrimaryButton>
                                             <DangerButton v-show="can(['delete permission'])" type="button"
                                                 @click="(data.deleteOpen = true), (data.permission = permission)"
-                                                class="px-2 py-1.5 rounded-none" v-tooltip="'Delete'">
+                                                class="px-2 py-1.5 rounded-none" v-tooltip="lang().tooltip.delete">
                                                 <TrashIcon class="w-4 h-4" />
                                             </DangerButton>
                                         </div>

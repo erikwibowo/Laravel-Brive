@@ -40,7 +40,7 @@ watchEffect(() => {
     </div>
     <div class="flex flex-col space-y-2 mx-auto p-6 text-lg" v-if="links.data.length == 0">
         <Icon :name="'nodata'" class="w-auto h-16" />
-        <p>No Data</p>
+        <p>{{ lang().label.no_data }}</p>
     </div>
     <div v-if="links.links.length > 3">
         <!-- <ul
@@ -54,14 +54,14 @@ watchEffect(() => {
         <ul
             class="flex justify-center items-center rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
             <li>
-                <button v-on:click="goto(links.prev_page_url)" class="px-4 py-2" v-html="'&laquo; Prev'"
+                <button v-on:click="goto(links.prev_page_url)" class="px-4 py-2" v-html="'&laquo;'"
                     :disabled="links.prev_page_url == null"></button>
             </li>
             <li>
                 <p class="px-4 py-2 bg-primary text-white" v-html="links.current_page"></p>
             </li>
             <li>
-                <button v-on:click="goto(links.next_page_url)" class="px-4 py-2" v-html="'Next &laquo;'"
+                <button v-on:click="goto(links.next_page_url)" class="px-4 py-2" v-html="'&laquo;'"
                     :disabled="links.next_page_url == null"></button>
             </li>
         </ul>

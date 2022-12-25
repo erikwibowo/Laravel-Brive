@@ -63,38 +63,40 @@ const select = () => {
         <Modal :show="props.show" @close="emit('close')">
             <form class="p-6" @submit.prevent="create">
                 <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                    Add role
+                    {{ lang().label.add }} {{ lang().label.role }}
                 </h2>
                 <div class="my-6 space-y-4">
                     <div>
-                        <InputLabel for="name" value="Name" />
+                        <InputLabel for="name" :value="lang().label.role" />
                         <TextInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required
-                            placeholder="Role Name" />
+                            :placeholder="lang().placeholder.name" />
                         <InputError class="mt-2" :message="form.errors.name" />
                     </div>
                     <div>
-                        <InputLabel value="Permission" />
+                        <InputLabel :value="lang().label.permission" />
                         <InputError class="mt-2" :message="form.errors.permissions" />
                         <div class="flex justify-start items-center space-x-2 mt-2">
                             <Checkbox id="permission-all" v-model:checked="data.multipleSelect" @change="selectAll" />
-                            <InputLabel for="permission-all" value="Check all" />
+                            <InputLabel for="permission-all" :value="lang().label.check_all" />
                         </div>
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-2">
-                            <div class="flex items-center justify-start space-x-2" v-for="(permission, index) in props.permissions" :key="index">
+                            <div class="flex items-center justify-start space-x-2"
+                                v-for="(permission, index) in props.permissions" :key="index">
                                 <input @change="select"
                                     class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-primary shadow-sm focus:ring-primary/80 dark:focus:ring-primary dark:focus:ring-offset-gray-800"
                                     type="checkbox" :id="'permission_' + permission.id" :value="permission.id"
                                     v-model="form.permissions" />
-                                    <InputLabel :for="'permission_' + permission.id" :value="permission.name" />
+                                <InputLabel :for="'permission_' + permission.id" :value="permission.name" />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="flex justify-end">
-                    <SecondaryButton :disabled="form.processing" @click="emit('close')"> Close </SecondaryButton>
+                    <SecondaryButton :disabled="form.processing" @click="emit('close')"> {{ lang().button.close }}
+                    </SecondaryButton>
                     <PrimaryButton class="ml-3" :class="{ 'opacity-25': form.processing }" :disabled="form.processing"
                         @click="create">
-                        {{ form.processing ? 'Create...' : 'Create' }}
+                        {{ form.processing ? lang().button.add+'...' : lang().button.add }}
                     </PrimaryButton>
                 </div>
             </form>

@@ -32,16 +32,17 @@ const destory = () => {
         <Modal :show="props.show" @close="emit('close')" :maxWidth="'lg'">
             <form class="p-6" @submit.prevent="destory">
                 <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                    Delete user
+                    {{ lang().label.delete }} {{ lang().label.user }}
                 </h2>
                 <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                    Are you sure to delete user <b>{{ props.user?.name }}</b>?
+                    {{ lang().label.delete_confirm }} <b>{{ props.user?.name }}</b>?
                 </p>
                 <div class="mt-6 flex justify-end">
-                    <SecondaryButton :disabled="form.processing" @click="emit('close')"> Close </SecondaryButton>
+                    <SecondaryButton :disabled="form.processing" @click="emit('close')"> {{ lang().button.close }}
+                    </SecondaryButton>
                     <DangerButton class="ml-3" :class="{ 'opacity-25': form.processing }" :disabled="form.processing"
                         @click="destory">
-                        {{ form.processing ? 'Delete...' : 'Delete' }}
+                        {{ form.processing ? lang().button.delete+'...' : lang().button.delete }}
                     </DangerButton>
                 </div>
             </form>

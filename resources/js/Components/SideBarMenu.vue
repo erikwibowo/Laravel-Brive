@@ -7,7 +7,6 @@ import {
     ShieldCheckIcon
 } from "@heroicons/vue/24/solid";
 import { Link } from "@inertiajs/inertia-vue3";
-import ApplicationLogo from "@/Components/ApplicationLogo.vue";
 
 </script>
 <template>
@@ -37,30 +36,30 @@ import ApplicationLogo from "@/Components/ApplicationLogo.vue";
                 </Link>
             </li>
             <li v-show="can(['read user'])" class="py-2">
-                <p>DATA</p>
+                <p>{{ lang().label.data }}</p>
             </li>
             <li v-show="can(['read user'])" class="bg-primary text-white rounded-lg hover:bg-primary"
                 :class="{ 'bg-gray-700': !route().current('user.index') }">
                 <Link :href="route('user.index')" class="flex items-center py-2 px-4">
                 <UserIcon class="w-6 h-5" />
-                <span class="ml-3">User</span>
+                <span class="ml-3">{{ lang().label.user }}</span>
                 </Link>
             </li>
             <li v-show="can(['read role', 'read permission'])" class="py-2">
-                <p>ACCESS</p>
+                <p>{{ lang().label.access }}</p>
             </li>
             <li v-show="can(['read role'])" class="bg-primary text-white rounded-lg hover:bg-primary"
                 :class="{ 'bg-gray-700': !route().current('role.index') }">
                 <Link :href="route('role.index')" class="flex items-center py-2 px-4">
                 <KeyIcon class="w-6 h-5" />
-                <span class="ml-3">Role</span>
+                <span class="ml-3">{{ lang().label.role }}</span>
                 </Link>
             </li>
             <li v-show="can(['read permission'])" class="bg-primary text-white rounded-lg hover:bg-primary"
                 :class="{ 'bg-gray-700': !route().current('permission.index') }">
                 <Link :href="route('permission.index')" class="flex items-center py-2 px-4">
                 <ShieldCheckIcon class="w-6 h-5" />
-                <span class="ml-3">Permission</span>
+                <span class="ml-3">{{ lang().label.permission }}</span>
                 </Link>
             </li>
         </ul>

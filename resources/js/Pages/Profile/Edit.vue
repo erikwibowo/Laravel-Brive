@@ -14,7 +14,7 @@ defineProps({
 
 <template>
 
-    <Head title="Profile" />
+    <Head :title="lang().label.profile" />
 
     <AuthenticatedLayout>
         <Breadcrumb :title="'Profile'" :breadcrumbs="[]" />

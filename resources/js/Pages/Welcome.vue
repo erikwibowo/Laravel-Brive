@@ -13,7 +13,7 @@ defineProps({
 
 <template>
 
-    <Head title="Welcome" />
+    <Head :title="lang().label.welcome" />
     <div class="relative flex justify-center min-h-screen bg-gray-100 dark:bg-gray-900 items-center sm:pt-0">
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
             <div class="flex items-center pt-8 px-4 sm:px-0 justify-between sm:pt-0">
@@ -36,16 +36,13 @@ defineProps({
                             </svg>
                             <div class="ml-4 text-lg leading-7 font-semibold">
                                 <a href="https://github.com/erikwibowo/Laravel-Brive/blob/master/README.md"
-                                    class="underline text-gray-900 dark:text-white">Documentation</a>
+                                    class="underline text-gray-900 dark:text-white">{{ lang().label.documentation }}</a>
                             </div>
                         </div>
 
                         <div class="ml-12">
                             <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                Laravel Brive is a starter project made with Laravel Breeze Inertia Vue and add more
-                                additional feature like User, Role & Permission management, Responsive design,
-                                Light/Dark Mode, Rich Table with many features. Check the documentation for more
-                                installation.
+                                {{ lang().label.documentation_detail }}
                             </div>
                             <div v-if="canLogin" class="flex items-center justify-start space-x-4 mt-4">
                                 <Link v-if="$page.props.auth.user" :href="route('dashboard')"
@@ -53,10 +50,10 @@ defineProps({
 
                                 <template v-else>
                                     <Link :href="route('login')"
-                                        class="text-lg text-gray-700 dark:text-gray-500 underline">Log in</Link>
+                                        class="text-lg text-gray-700 dark:text-gray-500 underline">{{ lang().label.login }}</Link>
 
                                     <Link v-if="canRegister" :href="route('register')"
-                                        class="ml-4 text-lg text-gray-700 dark:text-gray-500 underline">Register</Link>
+                                        class="ml-4 text-lg text-gray-700 dark:text-gray-500 underline">{{ lang().label.register }}</Link>
                                 </template>
                             </div>
                         </div>

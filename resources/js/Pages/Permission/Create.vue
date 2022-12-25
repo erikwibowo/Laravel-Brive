@@ -36,21 +36,22 @@ const create = () => {
         <Modal :show="props.show" @close="emit('close')">
             <form class="p-6" @submit.prevent="create">
                 <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                    Add permission
+                    {{ lang().label.add }} {{ lang().label.permission }}
                 </h2>
                 <div class="my-6 space-y-4">
                     <div>
-                        <InputLabel for="name" value="Name" />
+                        <InputLabel for="name" :value="lang().label.role" />
                         <TextInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required
-                            placeholder="Permission Name" />
+                            :placeholder="lang().placeholder.name" />
                         <InputError class="mt-2" :message="form.errors.name" />
                     </div>
                 </div>
                 <div class="flex justify-end">
-                    <SecondaryButton :disabled="form.processing" @click="emit('close')"> Close </SecondaryButton>
+                    <SecondaryButton :disabled="form.processing" @click="emit('close')"> {{ lang().button.close }}
+                    </SecondaryButton>
                     <PrimaryButton class="ml-3" :class="{ 'opacity-25': form.processing }" :disabled="form.processing"
                         @click="create">
-                        {{ form.processing ? 'Create...' : 'Create' }}
+                        {{ form.processing ? lang().button.add+'...' : lang().button.add }}
                     </PrimaryButton>
                 </div>
             </form>

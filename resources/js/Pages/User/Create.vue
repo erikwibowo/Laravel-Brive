@@ -44,45 +44,47 @@ const roles = props.roles.map(role => ({ label: role.name, value: role.name }))
         <Modal :show="props.show" @close="emit('close')">
             <form class="p-6" @submit.prevent="create">
                 <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                    Add user
+                    {{ lang().label.add }} {{ lang().label.user }}
                 </h2>
                 <div class="my-6 space-y-4">
                     <div>
-                        <InputLabel for="name" value="Name" />
+                        <InputLabel for="name" :value="lang().label.name" />
                         <TextInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required
-                            placeholder="Your Name" />
+                            :placeholder="lang().placeholder.name" />
                         <InputError class="mt-2" :message="form.errors.name" />
                     </div>
                     <div>
-                        <InputLabel for="email" value="Email" />
+                        <InputLabel for="email" :value="lang().label.email" />
                         <TextInput id="email" type="email" class="mt-1 block w-full" v-model="form.email"
-                            placeholder="email@email.com" />
+                            :placeholder="lang().placeholder.email" />
                         <InputError class="mt-2" :message="form.errors.email" />
                     </div>
                     <div>
-                        <InputLabel for="password" value="Password" />
+                        <InputLabel for="password" :value="lang().label.password" />
                         <TextInput id="password" type="password" class="mt-1 block w-full" v-model="form.password"
-                            placeholder="********" />
+                            :placeholder="lang().placeholder.password" />
                         <InputError class="mt-2" :message="form.errors.password" />
                     </div>
                     <div>
-                        <InputLabel for="password_confirmation" value="Confirm Password" />
+                        <InputLabel for="password_confirmation" :value="lang().label.password_confirmation" />
                         <TextInput id="password_confirmation" type="password" class="mt-1 block w-full"
-                            v-model="form.password_confirmation" placeholder="********" />
+                            v-model="form.password_confirmation"
+                            :placeholder="lang().placeholder.password_confirmation" />
                         <InputError class="mt-2" :message="form.errors.password_confirmation" />
                     </div>
                     <div>
-                        <InputLabel for="role" value="Role" />
+                        <InputLabel for="role" :value="lang().label.role" />
                         <SelectInput id="role" class="mt-1 block w-full" v-model="form.role" required :dataSet="roles">
                         </SelectInput>
                         <InputError class="mt-2" :message="form.errors.role" />
                     </div>
                 </div>
                 <div class="flex justify-end">
-                    <SecondaryButton :disabled="form.processing" @click="emit('close')"> Close </SecondaryButton>
+                    <SecondaryButton :disabled="form.processing" @click="emit('close')"> {{ lang().button.close }}
+                    </SecondaryButton>
                     <PrimaryButton class="ml-3" :class="{ 'opacity-25': form.processing }" :disabled="form.processing"
                         @click="create">
-                        {{ form.processing ? 'Create...' : 'Create' }}
+                        {{ form.processing ? lang().button.add+'...' : lang().button.add }}
                     </PrimaryButton>
                 </div>
             </form>
