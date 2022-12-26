@@ -16,6 +16,7 @@ import Edit from '@/Pages/Permission/Edit.vue';
 import Delete from '@/Pages/Permission/Delete.vue';
 import DeleteBulk from '@/Pages/Permission/DeleteBulk.vue';
 import Checkbox from '@/Components/Checkbox.vue';
+import InfoButton from '@/Components/InfoButton.vue';
 
 const props = defineProps({
     title: String,
@@ -160,11 +161,11 @@ const select = () => {
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">
                                     <div class="flex justify-center items-center">
                                         <div class="rounded-md overflow-hidden">
-                                            <PrimaryButton v-show="can(['update permission'])" type="button"
+                                            <InfoButton v-show="can(['update permission'])" type="button"
                                                 @click="(data.editOpen = true), (data.permission = permission)"
                                                 class="px-2 py-1.5 rounded-none" v-tooltip="lang().tooltip.edit">
                                                 <PencilIcon class="w-4 h-4" />
-                                            </PrimaryButton>
+                                            </InfoButton>
                                             <DangerButton v-show="can(['delete permission'])" type="button"
                                                 @click="(data.deleteOpen = true), (data.permission = permission)"
                                                 class="px-2 py-1.5 rounded-none" v-tooltip="lang().tooltip.delete">

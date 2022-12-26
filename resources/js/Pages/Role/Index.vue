@@ -4,6 +4,7 @@ import { Head } from '@inertiajs/inertia-vue3';
 import Breadcrumb from '@/Components/Breadcrumb.vue';
 import TextInput from '@/Components/TextInput.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
+import InfoButton from '@/Components/InfoButton.vue';
 import SelectInput from '@/Components/SelectInput.vue';
 import { reactive, watch } from 'vue';
 import DangerButton from '@/Components/DangerButton.vue';
@@ -178,11 +179,11 @@ const select = () => {
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">
                                     <div class="flex justify-center items-center">
                                         <div class="rounded-md overflow-hidden">
-                                            <PrimaryButton v-show="can(['update role'])" type="button"
+                                            <InfoButton v-show="can(['update role'])" type="button"
                                                 @click="(data.editOpen = true), (data.role = role)"
                                                 class="px-2 py-1.5 rounded-none" v-tooltip="lang().tooltip.edit">
                                                 <PencilIcon class="w-4 h-4" />
-                                            </PrimaryButton>
+                                            </InfoButton>
                                             <DangerButton v-show="can(['delete role'])" type="button"
                                                 @click="(data.deleteOpen = true), (data.role = role)"
                                                 class="px-2 py-1.5 rounded-none" v-tooltip="lang().tooltip.delete">
