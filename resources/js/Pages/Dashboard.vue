@@ -4,6 +4,12 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { ChevronRightIcon, KeyIcon, ShieldCheckIcon, UserIcon } from '@heroicons/vue/24/solid';
 import { Head, Link } from '@inertiajs/inertia-vue3';
 
+const props = defineProps({
+    users: Number,
+    roles: Number,
+    permissions: Number,
+})
+
 </script>
 
 <template>
@@ -21,7 +27,7 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
                             <UserIcon class="w-12 h-12" />
                         </div>
                         <div class="flex justify-between items-center">
-                            <p class="text-4xl mr-2 font-bold mb-2">3</p>
+                            <p class="text-4xl mr-2 font-bold mb-2">{{ props.users }}</p>
                             <p class="text-md md:text-xl uppercase text-right">{{ lang().label.user }}</p>
                         </div>
                     </div>
@@ -40,7 +46,7 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
                             <KeyIcon class="w-12 h-12" />
                         </div>
                         <div class="flex justify-between items-center">
-                            <p class="text-4xl mr-2 font-bold mb-2">3</p>
+                            <p class="text-4xl mr-2 font-bold mb-2">{{ props.roles }}</p>
                             <p class="text-md md:text-xl uppercase text-right">{{ lang().label.role }}</p>
                         </div>
                     </div>
@@ -59,7 +65,7 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
                             <ShieldCheckIcon class="w-12 h-12" />
                         </div>
                         <div class="flex justify-between items-center">
-                            <p class="text-4xl mr-2 font-bold mb-2">12</p>
+                            <p class="text-4xl mr-2 font-bold mb-2">{{ props.permissions }}</p>
                             <p class="text-md md:text-xl uppercase text-right">{{ lang().label.permission }}</p>
                         </div>
                     </div>
