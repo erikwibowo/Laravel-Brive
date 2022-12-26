@@ -32,7 +32,7 @@ class UserController extends Controller
      */
     public function index(UserIndexRequest $request)
     {
-        $users = User::latest();
+        $users = User::query();
         if ($request->has('search')) {
             $users->where('name', 'LIKE', "%" . $request->search . "%");
             $users->orWhere('email', 'LIKE', "%" . $request->search . "%");

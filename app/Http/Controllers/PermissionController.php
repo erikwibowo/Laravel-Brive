@@ -30,7 +30,7 @@ class PermissionController extends Controller
      */
     public function index(PermissionIndexRequest $request)
     {
-        $permissions = Permission::latest();
+        $permissions = Permission::query();
         if ($request->has('search')) {
             $permissions->where('name', 'LIKE', "%" . $request->search . "%");
             $permissions->orWhere('guard_name', 'LIKE', "%" . $request->search . "%");

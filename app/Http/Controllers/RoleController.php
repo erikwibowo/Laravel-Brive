@@ -28,7 +28,7 @@ class RoleController extends Controller
      */
     public function index(RoleIndexRequest $request)
     {
-        $roles = Role::latest();
+        $roles = Role::query();
         if ($request->has('search')) {
             $roles->where('name', 'LIKE', "%" . $request->search . "%");
             $roles->orWhere('guard_name', 'LIKE', "%" . $request->search . "%");
