@@ -21,7 +21,7 @@ import { Link } from "@inertiajs/inertia-vue3";
             <span class="flex items-center justify-center">
                 <p class="truncate text-md">{{ $page.props.auth.user.name }}</p>
                 <div>
-                    <CheckBadgeIcon class="ml-[2px] w-4 h-4 text-light"
+                    <CheckBadgeIcon class="ml-[2px] w-4 h-4"
                         v-show="$page.props.auth.user.email_verified_at" />
                 </div>
             </span>

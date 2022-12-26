@@ -10,7 +10,7 @@ import DangerButton from '@/Components/DangerButton.vue';
 import { _, pickBy, debounce } from "lodash";
 import { Inertia } from '@inertiajs/inertia';
 import Pagination from '@/Components/Pagination.vue';
-import { ChevronUpDownIcon, PencilIcon, TrashIcon } from '@heroicons/vue/24/solid';
+import { CheckBadgeIcon, ChevronUpDownIcon, PencilIcon, TrashIcon } from '@heroicons/vue/24/solid';
 import Create from '@/Pages/User/Create.vue';
 import Edit from '@/Pages/User/Edit.vue';
 import Delete from '@/Pages/User/Delete.vue';
@@ -155,7 +155,13 @@ const select = () => {
                                         type="checkbox" @change="select" :value="user.id" v-model="data.selectedId" />
                                 </td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3 text-center">{{ ++index }}</td>
-                                <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ user.name }}</td>
+                                <td class="whitespace-nowrap py-4 px-2 sm:py-3">
+                                    <span class="flex justify-start items-center">
+                                        {{ user.name }}
+                                        <CheckBadgeIcon class="ml-[2px] w-4 h-4 text-blue-600 dark:text-white"
+                                            v-show="user.email_verified_at" />
+                                    </span>
+                                </td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ user.email }}</td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ user.roles.length == 0 ? 'not selected':user.roles[0].name }}</td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ user.created_at }}</td>

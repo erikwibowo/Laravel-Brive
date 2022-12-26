@@ -61,7 +61,8 @@ const emit = defineEmits(["open"])
                                             class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">
                                             {{ $page.props.auth.user.email }}</span>
                                     </div>
-                                    <DropdownLink :href="route('profile.edit')"> {{ lang().label.profile }} </DropdownLink>
+                                    <DropdownLink :href="route('profile.edit')"> {{ lang().label.profile }}
+                                    </DropdownLink>
                                     <DropdownLink :href="route('logout')" method="post" as="button">
                                         {{ lang().label.logout }}
                                     </DropdownLink>

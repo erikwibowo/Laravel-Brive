@@ -51,7 +51,8 @@ return [
         'documentation_detail' => 'Laravel Brive is a starter project made with Laravel Breeze Inertia Vue and add more additional feature like User, Role & Permission management, Responsive design, Light/Dark Mode, Rich Table with many features. Check the documentation for more installation.',
         'more' => 'More',
         'check_all' => 'Check all',
-        'email_verivication' => 'Email Verification',
+        'email_verification' => 'Email Verification',
+        'password_forgot' => 'Lupa Kata Sandi',
     ],
     'button' => [
         'login' => 'Login',
@@ -86,6 +87,7 @@ return [
         'delete_selected' => 'Delete all selected',
         'dark_mode' => 'Light/Dark Mode',
         'detail' => 'Click to detail',
+        'locale' => 'Change to Indonesian',
     ],
     'profile' => [
         'profile_information' => 'Profile Information',
@@ -101,6 +103,6 @@ return [
         'delete_account' => 'Delete Account',
         'dalete_account_caption' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
         'delete_account_modal_title' => 'Are you sure you want to delete your account?',
-        'delete_account_modal_caption' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.'
+        'delete_account_modal_caption' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.',
     ],
 ];

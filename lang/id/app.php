@@ -51,7 +51,7 @@ return [
         'documentation_detail' => 'Laravel Brive adalah sebuah starter project yang dibuat dengan menggunakan Laravel Breeze Inertia Vue dan menambahkan beberapa fitur seperti pengelolaan data Pengguna, Role & Permission, Desain yang responsif, Mode terang/gelap, Datatable dengan kaya fitur. Periksa dokumentasi untuk informasi pemasangan.',
         'more' => 'Selengkapnya',
         'check_all' => 'Pilih semua',
-        'email_verivication' => 'Verifikasi Email',
+        'email_verification' => 'Verifikasi Email',
         'password_forgot' => 'Lupa Kata Sandi',
     ],
     'button' => [
@@ -87,6 +87,7 @@ return [
         'delete_selected' => 'Hapus semua yang terpilih',
         'dark_mode' => 'Mode Terang/Gelap',
         'detail' => 'Klik untuk detail',
+        'locale' => 'Ganti ke Bahasa Inggris',
     ],
     'profile' => [
         'profile_information' => 'Informasi Profil',
@@ -102,7 +103,6 @@ return [
         'delete_account' => 'Hapus Akun',
         'dalete_account_caption' => 'Saat akun anda dihapus, semua sumber daya dan data akan dihapus permanen. Sebelum menghapus akun anda, harap unduh semua data atau informasi yang anda butuhkan.',
         'delete_account_modal_title' => 'Apakah anda yakin akan menghapus akun?',
-        'delete_account_modal_caption' => 'Saat akun anda dihapus, semua sumber daya dan data akan dihapus permanen. 
-        Silakan masukkan kata sandi Anda untuk mengonfirmasi bahwa Anda ingin menghapus akun Anda secara permanen.'
+        'delete_account_modal_caption' => 'Saat akun anda dihapus, semua sumber daya dan data akan dihapus permanen.  Silakan masukkan kata sandi Anda untuk mengonfirmasi bahwa Anda ingin menghapus akun Anda secara permanen.'
     ],
 ];
