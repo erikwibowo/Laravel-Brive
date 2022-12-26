@@ -1,3 +1,83 @@
+# Screenshots
+<p align="center">
+  <img alt="Light" src="https://i.postimg.cc/HLjcWFM4/Snipaste-2022-12-26-13-47-15.png" width="45%">&nbsp;
+  <img alt="Dark" src="https://i.postimg.cc/X7QYZQ42/Snipaste-2022-12-26-13-47-21.png" width="45%">
+  <img alt="Login" src="https://i.postimg.cc/8zcXDPZy/Snipaste-2022-12-26-13-58-34.png" width="45%">&nbsp;
+  <img alt="Register" src="https://i.postimg.cc/wMbJkHDv/Snipaste-2022-12-26-13-59-48.png" width="45%">
+  <img alt="Dashboard" src="https://i.postimg.cc/XJqYk5Lf/Snipaste-2022-12-26-14-01-12.png" width="45%">&nbsp;
+  <img alt="User" src="https://i.postimg.cc/wj9ys7CV/Snipaste-2022-12-26-14-01-58.png" width="45%">
+  <img alt="User" src="https://i.postimg.cc/DwWZGLC1/Snipaste-2022-12-26-14-10-29.png" width="45%">&nbsp;
+  <img alt="Permission" src="https://i.postimg.cc/QC6PkB6T/Snipaste-2022-12-26-14-04-01.png" width="45%">
+  <img alt="Modal Form" src="https://i.postimg.cc/vmcWc4nK/Snipaste-2022-12-26-14-08-50.png" width="45%">&nbsp;
+  <img alt="Modal Confirm" src="https://i.postimg.cc/7L3q1VSJ/Snipaste-2022-12-26-14-11-02.png" width="45%">
+  <img alt="Toast Notification Success" src="https://i.postimg.cc/pXF4ndfp/Snipaste-2022-12-26-14-11-53.png" width="45%">&nbsp;
+  <img alt="Toast Notification Error" src="https://i.postimg.cc/TPp4fY3d/Snipaste-2022-12-26-14-13-50.png" width="45%">
+</p>
+
+# Features
+- Role Based Access Controll
+- Responsive Design
+- Modal Form
+- Bullk Action
+- Light/Dark Mode
+- Toast Notification
+- Rich Feature Datatable Serverside
+- Tooltip
+- Localization (EN/ID)
+# Requirements
+- Php 8
+- Composer
+- Mysql
+- Apache
+# Installation
+``` bash
+git clone https://github.com/erikwibowo/Laravel-Brive.git
+cd Laravel-Brive
+composer update
+npm install
+php artisan key:generate
+cp .env.example .env
+
+SETTING UP DB CONNECTION IN .env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=brive
+DB_USERNAME=root
+DB_PASSWORD=
+
+php artisan migrate:fresh --seed
+
+START THE SERVER
+npm run dev
+php artisan serve
+```
+## Login WIth
+### Superadmin
+``` bash
+email : superadmin@superadmin.com
+password : superadmin
+```
+### Admin
+``` bash
+email : admin@admin.com
+password : admin
+```
+### Operator
+``` bash
+email : operator@operator.com
+password : operator
+```
+# Packages
+- [Vue](https://vuejs.org/)
+- [Inertia](https://inertiajs.com/)
+- [Tailwind](https://tailwindcss.com/)
+- [Spatie](https://spatie.be/docs/laravel-permission/v5/introduction)
+- [Floating Vue](https://floating-vue.starpad.dev/)
+- [VueUse](https://vueuse.org/)
+- [Hero Icons](https://heroicons.com/)
+- [HeadlessUI](https://headlessui.com/)
+# Build With
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -6,61 +86,3 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
