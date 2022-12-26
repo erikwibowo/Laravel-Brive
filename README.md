@@ -35,8 +35,8 @@ git clone https://github.com/erikwibowo/Laravel-Brive.git
 cd Laravel-Brive
 composer update
 npm install
-php artisan key:generate
 cp .env.example .env
+php artisan key:generate
 
 SETTING UP DB CONNECTION IN .env
 DB_CONNECTION=mysql
