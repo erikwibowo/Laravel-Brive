@@ -61,7 +61,7 @@ watchEffect(() => {
                 <p class="px-4 py-2 bg-primary text-white" v-html="links.current_page"></p>
             </li>
             <li>
-                <button v-on:click="goto(links.next_page_url)" class="px-4 py-2" v-html="'&laquo;'"
+                <button v-on:click="goto(links.next_page_url)" class="px-4 py-2" v-html="'&raquo;'"
                     :disabled="links.next_page_url == null"></button>
             </li>
         </ul>
