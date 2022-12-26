@@ -18,7 +18,7 @@
 - Role Based Access Controll
 - Responsive Design
 - Modal Form
-- Bullk Action
+- Bulk Action
 - Light/Dark Mode
 - Toast Notification
 - Rich Feature Datatable Serverside
@@ -52,7 +52,7 @@ START THE SERVER
 npm run dev
 php artisan serve
 ```
-## Login WIth
+## Login With
 ### Superadmin
 ``` bash
 email : superadmin@superadmin.com
