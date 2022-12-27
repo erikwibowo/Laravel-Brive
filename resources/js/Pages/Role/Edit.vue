@@ -55,6 +55,7 @@ const selectAll = (event) => {
     if (event.target.checked === false) {
         form.permissions = []
     } else {
+        form.permissions = []
         props.permissions.forEach((permission) => {
             form.permissions.push(permission.id)
         })

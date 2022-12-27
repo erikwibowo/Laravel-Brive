@@ -35,7 +35,7 @@ const create = () => {
     })
 }
 
-const roles = props.roles.map(role => ({ label: role.name, value: role.name }))
+const roles = props.roles?.map(role => ({ label: role.name, value: role.name }))
 
 </script>
 
