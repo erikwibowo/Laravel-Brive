@@ -15,7 +15,7 @@
 </p>
 
 # Features
-- Role Based Access Controll
+- Role Based Access Control
 - Responsive Design
 - Modal Form
 - Bulk Action
