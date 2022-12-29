@@ -52,7 +52,7 @@ return [
         'more' => 'More',
         'check_all' => 'Check all',
         'email_verification' => 'Email Verification',
-        'password_forgot' => 'Lupa Kata Sandi',
+        'password_forgot' => 'Forgotten password?',
     ],
     'button' => [
         'login' => 'Login',
