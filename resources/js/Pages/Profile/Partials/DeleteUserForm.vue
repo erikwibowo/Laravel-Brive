@@ -43,7 +43,7 @@ const closeModal = () => {
             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">{{ lang().profile.delete_account }}</h2>
 
             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                {{ lang().profile.dalete_account_caption }}
+                {{ lang().profile.delete_account_caption }}
             </p>
         </header>
 
