@@ -47,7 +47,7 @@ return [
         'add' => 'Add',
         'verify_email_notification' => 'A new verification link has been sent to the email address you provided during registration.',
         'no_data' => 'No data',
-        'documentation' => 'Dokumentation',
+        'documentation' => 'Documentation',
         'documentation_detail' => 'Laravel Brive is a starter project made with Laravel Breeze Inertia Vue and add more additional feature like User, Role & Permission management, Responsive design, Light/Dark Mode, Rich Table with many features. Check the documentation for more installation.',
         'more' => 'More',
         'check_all' => 'Check all',
