@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, useForm } from '@inertiajs/inertia-vue3';
+import AuntheticationIllustration from '@/Components/AuntheticationIllustration.vue';
 
 const props = defineProps({
     email: String,
@@ -30,6 +31,9 @@ const submit = () => {
 
         <Head :title="lang().label.reset_password" />
 
+        <template #illustration>
+            <AuntheticationIllustration type="login" class="w-72 h-auto" />
+        </template>
         <form @submit.prevent="submit">
             <div>
                 <InputLabel for="email" :value="lang().label.email" />
@@ -53,14 +57,15 @@ const submit = () => {
                 <InputLabel for="password_confirmation" :value="lang().label.password_confirmation" />
 
                 <TextInput id="password_confirmation" type="password" class="mt-1 block w-full"
-                    v-model="form.password_confirmation" required autocomplete="new-password" :placeholder="lang().placeholder.password_confirmation" />
+                    v-model="form.password_confirmation" required autocomplete="new-password"
+                    :placeholder="lang().placeholder.password_confirmation" />
 
                 <InputError class="mt-2" :message="form.errors.password_confirmation" />
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    {{ form.processing ? lang().button.reset_password+'...':lang().button.reset_password }}
+                    {{ form.processing ? lang().button.reset_password + '...' : lang().button.reset_password }}
                 </PrimaryButton>
             </div>
         </form>

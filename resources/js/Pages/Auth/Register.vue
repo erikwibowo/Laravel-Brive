@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import AuntheticationIllustration from '@/Components/AuntheticationIllustration.vue';
 
 const form = useForm({
     name: '',
@@ -26,6 +27,9 @@ const submit = () => {
 
         <Head :title="lang().label.register" />
 
+        <template #illustration>
+            <AuntheticationIllustration type="login" class="w-72 h-auto" />
+        </template>
         <form @submit.prevent="submit">
             <div>
                 <InputLabel for="name" :value="lang().label.name" />
@@ -58,7 +62,8 @@ const submit = () => {
                 <InputLabel for="password_confirmation" :value="lang().label.password_confirmation" />
 
                 <TextInput id="password_confirmation" type="password" class="mt-1 block w-full"
-                    v-model="form.password_confirmation" required autocomplete="new-password" :placeholder="lang().placeholder.password_confirmation" />
+                    v-model="form.password_confirmation" required autocomplete="new-password"
+                    :placeholder="lang().placeholder.password_confirmation" />
 
                 <InputError class="mt-2" :message="form.errors.password_confirmation" />
             </div>
@@ -70,7 +75,7 @@ const submit = () => {
                 </Link>
 
                 <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    {{ form.processing ? lang().button.register+'...':lang().button.register }}
+                    {{ form.processing ? lang().button.register + '...' : lang().button.register }}
                 </PrimaryButton>
             </div>
         </form>

@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, useForm } from '@inertiajs/inertia-vue3';
+import AuntheticationIllustration from '@/Components/AuntheticationIllustration.vue';
 
 defineProps({
     status: String,
@@ -24,6 +25,9 @@ const submit = () => {
 
         <Head :title="lang().label.password_forgot" />
 
+        <template #illustration>
+            <AuntheticationIllustration type="login" class="w-72 h-auto" />
+        </template>
         <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
             {{ lang().label.forgot_password }}
         </div>
@@ -44,7 +48,7 @@ const submit = () => {
 
             <div class="flex items-center justify-end mt-4">
                 <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    {{ form.processing ? lang().button.forgot_password+'...':lang().button.forgot_password }}
+                    {{ form.processing ? lang().button.forgot_password + '...' : lang().button.forgot_password }}
                 </PrimaryButton>
             </div>
         </form>

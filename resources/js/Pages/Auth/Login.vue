@@ -6,6 +6,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import AuntheticationIllustration from '@/Components/AuntheticationIllustration.vue';
 
 defineProps({
     canResetPassword: Boolean,
@@ -29,7 +30,9 @@ const submit = () => {
     <GuestLayout>
 
         <Head :title="lang().label.login" />
-
+        <template #illustration>
+            <AuntheticationIllustration type="login" class="w-72 h-auto" />
+        </template>
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
@@ -61,7 +64,7 @@ const submit = () => {
                 {{ lang().label.lost_password }}
                 </Link>
                 <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    {{ form.processing ? lang().button.login+'...':lang().button.login }}
+                    {{ form.processing ? lang().button.login + '...' : lang().button.login }}
                 </PrimaryButton>
             </div>
         </form>
