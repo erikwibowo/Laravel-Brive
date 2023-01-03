@@ -18,7 +18,7 @@ import SwitchDarkMode from '@/Components/SwitchDarkMode.vue'
                     </div>
                     <slot />
                 </div>
-                <div class="hidden lg:flex lg:flex-col px-6 py-4 justify-center items-center space-y-2 bg-indigo-500 text-white">
+                <div class="hidden lg:flex lg:flex-col px-6 py-4 justify-center items-center space-y-2 bg-primary text-white">
                     <slot name="illustration" />
                 </div>
             </div>

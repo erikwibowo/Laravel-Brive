@@ -1,5 +1,5 @@
 :root {
-    --color-primary: 79 70 229;
+    --color-primary: 2 132 199;
 }
 @tailwind base;
 @tailwind components;
@@ -14,7 +14,7 @@
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-gray-800 dark:bg-white rounded
+    @apply bg-gray-800 dark:bg-white
 }
 
 .scrollbar::-webkit-scrollbar-thumb:hover {
@@ -26,7 +26,7 @@
 }
 
 .scrollbar-sidebar::-webkit-scrollbar-track {
-    @apply bg-gray-800
+    @apply bg-gray-800 dark:bg-gray-900
 }
 
 .scrollbar-sidebar::-webkit-scrollbar-thumb {
