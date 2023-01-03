@@ -29,7 +29,7 @@ import { Link } from "@inertiajs/inertia-vue3";
         </div>
         <ul class="space-y-2 my-4">
             <li class="bg-primary text-white rounded-lg hover:bg-primary"
-                :class="{ 'bg-gray-700': !route().current('dashboard') }">
+                :class="{ 'bg-gray-700/40': !route().current('dashboard') }">
                 <Link :href="route('dashboard')" class="flex items-center py-2 px-4">
                 <HomeIcon class="w-6 h-5" />
                 <span class="ml-3">Dashboard</span>
@@ -39,7 +39,7 @@ import { Link } from "@inertiajs/inertia-vue3";
                 <p>{{ lang().label.data }}</p>
             </li>
             <li v-show="can(['read user'])" class="bg-primary text-white rounded-lg hover:bg-primary"
-                :class="{ 'bg-gray-700': !route().current('user.index') }">
+                :class="{ 'bg-gray-700/40': !route().current('user.index') }">
                 <Link :href="route('user.index')" class="flex items-center py-2 px-4">
                 <UserIcon class="w-6 h-5" />
                 <span class="ml-3">{{ lang().label.user }}</span>
@@ -49,14 +49,14 @@ import { Link } from "@inertiajs/inertia-vue3";
                 <p>{{ lang().label.access }}</p>
             </li>
             <li v-show="can(['read role'])" class="bg-primary text-white rounded-lg hover:bg-primary"
-                :class="{ 'bg-gray-700': !route().current('role.index') }">
+                :class="{ 'bg-gray-700/40': !route().current('role.index') }">
                 <Link :href="route('role.index')" class="flex items-center py-2 px-4">
                 <KeyIcon class="w-6 h-5" />
                 <span class="ml-3">{{ lang().label.role }}</span>
                 </Link>
             </li>
             <li v-show="can(['read permission'])" class="bg-primary text-white rounded-lg hover:bg-primary"
-                :class="{ 'bg-gray-700': !route().current('permission.index') }">
+                :class="{ 'bg-gray-700/40': !route().current('permission.index') }">
                 <Link :href="route('permission.index')" class="flex items-center py-2 px-4">
                 <ShieldCheckIcon class="w-6 h-5" />
                 <span class="ml-3">{{ lang().label.permission }}</span>

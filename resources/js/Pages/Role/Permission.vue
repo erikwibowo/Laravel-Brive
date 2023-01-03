@@ -6,6 +6,7 @@ import { useForm } from '@inertiajs/inertia-vue3';
 
 const props = defineProps({
     show: Boolean,
+    title: String,
     role: Object,
 })
 

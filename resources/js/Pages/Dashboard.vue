@@ -23,12 +23,12 @@ const props = defineProps({
                 <div>
                     <div
                         class="rounded-t-none sm:rounded-t-lg px-4 py-6 flex justify-between bg-blue-600/70 dark:bg-blue-600/60 items-center overflow-hidden">
-                        <div>
-                            <UserIcon class="w-12 h-12" />
+                        <div class="flex flex-col">
+                            <p class="text-4xl font-bold">{{ props.users }}</p>
+                            <p class="text-md md:text-lg uppercase">{{ lang().label.user }}</p>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <p class="text-4xl mr-2 font-bold mb-2">{{ props.users }}</p>
-                            <p class="text-md md:text-xl uppercase text-right">{{ lang().label.user }}</p>
+                        <div>
+                            <UserIcon class="w-16 h-auto" />
                         </div>
                     </div>
                     <div
@@ -42,12 +42,12 @@ const props = defineProps({
                 <div>
                     <div
                         class="rounded-t-none sm:rounded-t-lg px-4 py-6 flex justify-between bg-green-600/70 dark:bg-green-600/60 items-center overflow-hidden">
-                        <div>
-                            <KeyIcon class="w-12 h-12" />
+                        <div class="flex flex-col">
+                            <p class="text-4xl font-bold">{{ props.roles }}</p>
+                            <p class="text-md md:text-lg uppercase">{{ lang().label.role }}</p>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <p class="text-4xl mr-2 font-bold mb-2">{{ props.roles }}</p>
-                            <p class="text-md md:text-xl uppercase text-right">{{ lang().label.role }}</p>
+                        <div>
+                            <KeyIcon class="w-16 h-auto" />
                         </div>
                     </div>
                     <div
@@ -61,12 +61,12 @@ const props = defineProps({
                 <div>
                     <div
                         class="rounded-t-none sm:rounded-t-lg px-4 py-6 flex justify-between bg-amber-600/70 dark:bg-amber-600/60 items-center overflow-hidden">
-                        <div>
-                            <ShieldCheckIcon class="w-12 h-12" />
+                        <div class="flex flex-col">
+                            <p class="text-4xl font-bold">{{ props.permissions }}</p>
+                            <p class="text-md md:text-lg uppercase">{{ lang().label.permission }}</p>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <p class="text-4xl mr-2 font-bold mb-2">{{ props.permissions }}</p>
-                            <p class="text-md md:text-xl uppercase text-right">{{ lang().label.permission }}</p>
+                        <div>
+                            <ShieldCheckIcon class="w-16 h-auto" />
                         </div>
                     </div>
                     <div

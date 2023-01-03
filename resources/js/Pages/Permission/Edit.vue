@@ -10,6 +10,7 @@ import { watchEffect } from 'vue';
 
 const props = defineProps({
     show: Boolean,
+    title: String,
     permission: Object,
 })
 
@@ -44,7 +45,7 @@ watchEffect(() => {
         <Modal :show="props.show" @close="emit('close')">
             <form class="p-6" @submit.prevent="update">
                 <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                    {{ lang().label.edit }} {{ lang().label.permission }}
+                    {{ lang().label.edit }} {{ props.title }}
                 </h2>
                 <div class="my-6 space-y-4">
                     <div>

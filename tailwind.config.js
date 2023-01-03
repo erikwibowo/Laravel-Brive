@@ -13,7 +13,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Comfortaa', ...defaultTheme.fontFamily.sans],
+                sans: ['Quicksand', ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 primary: "rgb(var(--color-primary) / <alpha-value>)",

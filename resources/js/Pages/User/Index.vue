@@ -93,10 +93,10 @@ const select = () => {
                     <PrimaryButton v-show="can(['create user'])" class="rounded-none" @click="data.createOpen = true">
                         {{ lang().button.add }}
                     </PrimaryButton>
-                    <Create :show="data.createOpen" @close="data.createOpen = false" :roles="props.roles" />
-                    <Edit :show="data.editOpen" @close="data.editOpen = false" :user="data.user" :roles="props.roles" />
-                    <Delete :show="data.deleteOpen" @close="data.deleteOpen = false" :user="data.user" />
-                    <DeleteBulk :show="data.deleteBulkOpen" @close="data.deleteBulkOpen = false, data.multipleSelect = false, data.selectedId = []" :selectedId="data.selectedId" />
+                    <Create :show="data.createOpen" @close="data.createOpen = false" :roles="props.roles" :title="props.title" />
+                    <Edit :show="data.editOpen" @close="data.editOpen = false" :user="data.user" :roles="props.roles" :title="props.title" />
+                    <Delete :show="data.deleteOpen" @close="data.deleteOpen = false" :user="data.user" :title="props.title" />
+                    <DeleteBulk :show="data.deleteBulkOpen" @close="data.deleteBulkOpen = false, data.multipleSelect = false, data.selectedId = []" :selectedId="data.selectedId" :title="props.title" />
                 </div>
             </div>
             <div class="relative bg-white dark:bg-gray-800 shadow sm:rounded-lg">

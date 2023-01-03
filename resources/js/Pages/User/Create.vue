@@ -10,6 +10,7 @@ import { useForm } from '@inertiajs/inertia-vue3';
 
 const props = defineProps({
     show: Boolean,
+    title: String,
     roles: Object,
 })
 
@@ -44,7 +45,7 @@ const roles = props.roles?.map(role => ({ label: role.name, value: role.name }))
         <Modal :show="props.show" @close="emit('close')">
             <form class="p-6" @submit.prevent="create">
                 <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                    {{ lang().label.add }} {{ lang().label.user }}
+                    {{ lang().label.add }} {{ props.title }}
                 </h2>
                 <div class="my-6 space-y-4">
                     <div>

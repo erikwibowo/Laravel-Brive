@@ -7,6 +7,7 @@ import { watchEffect } from 'vue';
 
 const props = defineProps({
     show: Boolean,
+    title: String,
     selectedId: Object,
 })
 
@@ -41,10 +42,10 @@ watchEffect(() => {
         <Modal :show="props.show" @close="emit('close')" :maxWidth="'lg'">
             <form class="p-6" @submit.prevent="destory">
                 <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                    {{ lang().label.delete }} {{ lang().label.permission }}
+                    {{ lang().label.delete }} {{ props.title }}
                 </h2>
                 <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                    {{ lang().label.delete_confirm }} {{ props.selectedId?.length }} {{ lang().label.permission }}?
+                    {{ lang().label.delete_confirm }} {{ props.selectedId?.length }} {{ props.title }}?
                 </p>
                 <div class="mt-6 flex justify-end">
                     <SecondaryButton :disabled="form.processing" @click="emit('close')"> {{ lang().button.close }}

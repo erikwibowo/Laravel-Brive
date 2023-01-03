@@ -3,7 +3,7 @@ import ApplicationLogo from '@/Components/ApplicationLogo.vue'
 import Dropdown from '@/Components/Dropdown.vue'
 import DropdownLink from '@/Components/DropdownLink.vue'
 import { Link } from '@inertiajs/inertia-vue3'
-import { Bars3CenterLeftIcon, CheckCircleIcon, ChevronDownIcon, UserIcon } from "@heroicons/vue/24/solid"
+import { Bars3CenterLeftIcon, CheckBadgeIcon, ChevronDownIcon, UserIcon } from "@heroicons/vue/24/solid"
 import SwitchDarkModeNavbar from '@/Components/SwitchDarkModeNavbar.vue'
 
 const emit = defineEmits(["open"])
@@ -48,7 +48,7 @@ const emit = defineEmits(["open"])
                                             class="hover:text-gray-400 hover:bg-gray-900 focus:bg-gray-900 focus:text-gray-400 items-center justify-center p-2 rounded-md lg:hover:text-gray-500 dark:hover:text-gray-400 lg:hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none lg:focus:bg-gray-100 dark:focus:bg-gray-900 lg:focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out truncate w-fit hidden sm:inline-flex">
                                             <span class="flex justify-between items-center">
                                                 {{ $page.props.auth.user.name.split(' ')[0] }}
-                                                <CheckCircleIcon class="ml-[2px] w-4 h-4 text-white dark:text-white lg:text-blue-600"
+                                                <CheckBadgeIcon class="ml-[2px] w-4 h-4 text-white dark:text-white lg:text-blue-600"
                                                     v-show="$page.props.auth.user.email_verified_at" />
                                             </span>
                                             <ChevronDownIcon class="ml-2 h-4 w-4 fill-current" />
@@ -61,7 +61,7 @@ const emit = defineEmits(["open"])
                                         class="py-3 px-4 border-b border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300">
                                         <span class="flex items-center justify-start text-sm truncate">
                                             {{ $page.props.auth.user.name }}
-                                            <CheckCircleIcon class="ml-[2px] w-4 h-4 dark:text-white text-blue-600"
+                                            <CheckBadgeIcon class="ml-[2px] w-4 h-4 dark:text-white text-blue-600"
                                                     v-show="$page.props.auth.user.email_verified_at" />
                                         </span>
                                         <span
