@@ -101,7 +101,7 @@ return [
         'current_password' => 'Kata Sandi Saat Ini',
         'new_password' => 'Kata Sandi Baru',
         'delete_account' => 'Hapus Akun',
-        'dalete_account_caption' => 'Saat akun anda dihapus, semua sumber daya dan data akan dihapus permanen. Sebelum menghapus akun anda, harap unduh semua data atau informasi yang anda butuhkan.',
+        'delete_account_caption' => 'Saat akun anda dihapus, semua sumber daya dan data akan dihapus permanen. Sebelum menghapus akun anda, harap unduh semua data atau informasi yang anda butuhkan.',
         'delete_account_modal_title' => 'Apakah anda yakin akan menghapus akun?',
         'delete_account_modal_caption' => 'Saat akun anda dihapus, semua sumber daya dan data akan dihapus permanen.  Silakan masukkan kata sandi Anda untuk mengonfirmasi bahwa Anda ingin menghapus akun Anda secara permanen.'
     ],
