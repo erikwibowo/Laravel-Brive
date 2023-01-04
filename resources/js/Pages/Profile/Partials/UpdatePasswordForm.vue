@@ -66,7 +66,7 @@ const updatePassword = () => {
                 <InputLabel for="password_confirmation" :value="lang().label.password_confirmation" />
 
                 <TextInput id="password_confirmation" v-model="form.password_confirmation" type="password"
-                    class="mt-1 block w-full" autocomplete="new-password" :placeholder="lang().placeholder.password" />
+                    class="mt-1 block w-full" autocomplete="new-password" :placeholder="lang().placeholder.password_confirmation" />
 
                 <InputError :message="form.errors.password_confirmation" class="mt-2" />
             </div>
