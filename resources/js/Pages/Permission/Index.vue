@@ -17,6 +17,7 @@ import Delete from '@/Pages/Permission/Delete.vue';
 import DeleteBulk from '@/Pages/Permission/DeleteBulk.vue';
 import Checkbox from '@/Components/Checkbox.vue';
 import InfoButton from '@/Components/InfoButton.vue';
+import { usePage } from '@inertiajs/inertia-vue3';
 
 const props = defineProps({
     title: String,
@@ -39,12 +40,7 @@ const data = reactive({
     deleteOpen: false,
     deleteBulkOpen: false,
     permission: null,
-    dataSet: [
-        { label: '10', 'value': 10 },
-        { label: '20', 'value': 20 },
-        { label: '50', 'value': 50 },
-        { label: '100', 'value': 100 },
-    ]
+    dataSet: usePage().props.value.app.perpage
 })
 
 const order = (field) => {
