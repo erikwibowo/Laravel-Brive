@@ -21,13 +21,13 @@ const emit = defineEmits(["open"])
                     <div class="mr-4 shrink-0 flex items-center lg:hidden">
                         <button v-on:click="emit('open')"
                             class="hover:text-gray-400 hover:bg-gray-900 focus:bg-gray-900 focus:text-gray-400 inline-flex items-center justify-center p-2 rounded-md lg:hover:text-gray-500 dark:hover:text-gray-400 lg:hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none lg:focus:bg-gray-100 dark:focus:bg-gray-900 lg:focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
-                            <Bars3CenterLeftIcon class="h-6 w-6" />
+                            <Bars3CenterLeftIcon class="h-5 w-5" />
                         </button>
                     </div>
                     <!-- Logo -->
                     <div class="flex">
                         <Link :href="route('dashboard')" class="flex items-center space-x-2">
-                        <ApplicationLogo class="hidden md:block h-6 w-auto fill-current" />
+                        <ApplicationLogo class="hidden md:block h-5 w-auto fill-current" />
                         <p>{{ $page.props.app.name }}</p>
                         </Link>
                     </div>
@@ -42,7 +42,7 @@ const emit = defineEmits(["open"])
                                     <span class="inline-flex rounded-md">
                                         <button type="button"
                                             class="hover:text-gray-400 hover:bg-gray-900 focus:bg-gray-900 focus:text-gray-400 inline-flex items-center justify-center p-2 rounded-md lg:hover:text-gray-500 dark:hover:text-gray-400 lg:hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none lg:focus:bg-gray-100 dark:focus:bg-gray-900 lg:focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out sm:hidden">
-                                            <UserIcon class="h-4 w-4" />
+                                            <UserIcon class="h-5 w-5" />
                                         </button>
                                         <button type="button"
                                             class="hover:text-gray-400 hover:bg-gray-900 focus:bg-gray-900 focus:text-gray-400 items-center justify-center p-2 rounded-md lg:hover:text-gray-500 dark:hover:text-gray-400 lg:hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none lg:focus:bg-gray-100 dark:focus:bg-gray-900 lg:focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out truncate w-fit hidden sm:inline-flex">
@@ -51,7 +51,7 @@ const emit = defineEmits(["open"])
                                                 <CheckBadgeIcon class="ml-[2px] w-4 h-4 text-white dark:text-white lg:text-primary"
                                                     v-show="$page.props.auth.user.email_verified_at" />
                                             </span>
-                                            <ChevronDownIcon class="ml-2 h-4 w-4 fill-current" />
+                                            <ChevronDownIcon class="ml-2 h-5 w-5 fill-current" />
                                         </button>
                                     </span>
                                 </template>
