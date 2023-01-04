@@ -152,14 +152,14 @@ const select = () => {
                                 class="border-t border-gray-200 dark:border-gray-700 hover:bg-gray-200/30 hover:dark:bg-gray-900/20">
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3 text-center">
                                     <input
-                                        class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-primary shadow-sm focus:ring-primary/80 dark:focus:ring-primary dark:focus:ring-offset-gray-800"
+                                        class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-primary dark:text-primary shadow-sm focus:ring-primary/80 dark:focus:ring-primary dark:focus:ring-offset-gray-800 dark:checked:bg-primary dark:checked:border-primary"
                                         type="checkbox" @change="select" :value="user.id" v-model="data.selectedId" />
                                 </td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3 text-center">{{ ++index }}</td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">
                                     <span class="flex justify-start items-center">
                                         {{ user.name }}
-                                        <CheckBadgeIcon class="ml-[2px] w-4 h-4 text-blue-600 dark:text-white"
+                                        <CheckBadgeIcon class="ml-[2px] w-4 h-4 text-primary dark:text-white"
                                             v-show="user.email_verified_at" />
                                     </span>
                                 </td>

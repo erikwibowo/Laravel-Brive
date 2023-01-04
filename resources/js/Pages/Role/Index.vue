@@ -89,34 +89,37 @@ const select = () => {
 
     <AuthenticatedLayout>
         <Breadcrumb :title="title" :breadcrumbs="breadcrumbs" />
-        <div class="space-y-4">
+                <div class="space-y-4">
             <div class="px-4 sm:px-0">
                 <div class="rounded-lg overflow-hidden w-fit">
                     <PrimaryButton v-show="can(['create role'])" class="rounded-none" @click="data.createOpen = true">
-                        {{ lang().button.add }}
-                    </PrimaryButton>
-                    <Create :show="data.createOpen" @close="data.createOpen = false" :permissions="props.permissions" :title="props.title" />
+                                      {{ lang().button.add }}
+                                     </PrimaryButton>
+                    <Create :show="data.createOpen" @close="data.createOpen = false" :permissions="props.permissions"
+                                  :title="props.title" />
                     <Edit :show="data.editOpen" @close="data.editOpen = false" :role="data.role"
                         :permissions="props.permissions" :title="props.title" />
-                    <Delete :show="data.deleteOpen" @close="data.deleteOpen = false" :role="data.role" :title="props.title" />
+                    <Delete :show="data.deleteOpen" @close="data.deleteOpen = false" :role="data.role"
+                                  :title="props.title" />
                     <DeleteBulk :show="data.deleteBulkOpen"
                         @close="data.deleteBulkOpen = false, data.multipleSelect = false, data.selectedId = []"
                         :selectedId="data.selectedId" :title="props.title" />
-                    <Permission :show="data.permissionOpen" @close="data.permissionOpen = false" :role="data.role" :title="props.title" />
+                    <Permission :show="data.permissionOpen" @close="data.permissionOpen = false" :role="data.role"
+                        :title="props.title" />
                 </div>
             </div>
             <div class="relative bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="flex justify-between p-2">
                     <div class="flex space-x-2">
-                        <SelectInput v-model="data.params.perPage" :dataSet="data.dataSet" />
+                          <SelectInput v-model="data.params.perPage" :dataSet="data.dataSet" />
                         <DangerButton @click="data.deleteBulkOpen = true"
-                            v-show="data.selectedId.length != 0 && can(['delete role'])" class="px-3 py-1.5"
-                            v-tooltip="lang().tooltip.delete_selected">
+                        v-show="data.selectedId.length != 0 && can(['delete role'])" class="px-3 py-1.5"
+                               v-tooltip="lang().tooltip.delete_selected">
                             <TrashIcon class="w-5 h-5" />
                         </DangerButton>
                     </div>
                     <TextInput v-model="data.params.search" type="text" class="block w-3/6 md:w-2/6 lg:w-1/6 rounded-lg"
-                        :placeholder="lang().placeholder.search" />
+                    :placeholder="lang().placeholder.search" />
                 </div>
                 <div class="overflow-x-auto scrollbar-table">
                     <table class="w-full">
@@ -159,13 +162,14 @@ const select = () => {
                                 class="border-t border-gray-200 dark:border-gray-700 hover:bg-gray-200/30 hover:dark:bg-gray-900/20">
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3 text-center">
                                     <input
-                                        class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-primary shadow-sm focus:ring-primary/80 dark:focus:ring-primary dark:focus:ring-offset-gray-800"
+                                        class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-primary dark:text-primary shadow-sm focus:ring-primary/80 dark:focus:ring-primary dark:focus:ring-offset-gray-800 dark:checked:bg-primary dark:checked:border-primary"
                                         type="checkbox" @change="select" :value="role.id" v-model="data.selectedId" />
-                                </td>
+                                                                        </td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3 text-center">{{ ++index }}</td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ role.name }}</td>
-                                <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ role.guard_name }}</td>
-                                <td v-tooltip="lang().tooltip.detail" v-if="role.permissions.length == props.permissions.length"
+                                                                <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ role.guard_name }}</td>
+                                                               <td v-tooltip="lang().tooltip.detail"
+                                                            v-if="role.permissions.length == props.permissions.length"
                                     @click="(data.permissionOpen = true), (data.role = role)"
                                     class="whitespace-nowrap py-4 px-2 sm:py-3 cursor-pointer text-blue-600 dark:text-blue-400 font-bold underline">
                                     {{ lang().label.all_permission }}</td>
@@ -173,7 +177,8 @@ const select = () => {
                                     @click="(data.permissionOpen = true), (data.role = role)"
                                     class="whitespace-nowrap py-4 px-2 sm:py-3 cursor-pointer text-blue-600 dark:text-blue-400 font-bold underline">
                                     {{ role.permissions.length }} {{ lang().label.permission }}</td>
-                                <td v-else class="whitespace-nowrap py-4 px-2 sm:py-3">{{ lang().label.no_permission }}</td>
+                                <td v-else class="whitespace-nowrap py-4 px-2 sm:py-3">{{ lang().label.no_permission }}
+                                </td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ role.created_at }}</td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ role.updated_at }}</td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">

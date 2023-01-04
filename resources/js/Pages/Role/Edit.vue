@@ -6,7 +6,7 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/inertia-vue3';
-import { watchEffect,reactive } from 'vue';
+import { watchEffect, reactive } from 'vue';
 import Checkbox from '@/Components/Checkbox.vue';
 
 const props = defineProps({
@@ -97,7 +97,7 @@ const select = () => {
                             <div class="flex items-center justify-start space-x-2"
                                 v-for="(permission, index) in props.permissions" :key="index">
                                 <input @change="select"
-                                    class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-primary shadow-sm focus:ring-primary/80 dark:focus:ring-primary dark:focus:ring-offset-gray-800"
+                                    class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-primary dark:text-primary shadow-sm focus:ring-primary/80 dark:focus:ring-primary dark:focus:ring-offset-gray-800 dark:checked:bg-primary dark:checked:border-primary"
                                     type="checkbox" :id="'permission_' + permission.id" :value="permission.id"
                                     v-model="form.permissions" />
                                 <InputLabel :for="'permission_' + permission.id" :value="permission.name" />
@@ -110,7 +110,7 @@ const select = () => {
                     </SecondaryButton>
                     <PrimaryButton class="ml-3" :class="{ 'opacity-25': form.processing }" :disabled="form.processing"
                         @click="update">
-                        {{ form.processing ? lang().button.save+'...' : lang().button.save }}
+                        {{ form.processing ? lang().button.save + '...' : lang().button.save }}
                     </PrimaryButton>
                 </div>
             </form>
