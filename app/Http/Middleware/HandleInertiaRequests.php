@@ -55,7 +55,10 @@ class HandleInertiaRequests extends Middleware
                     ['label' => '100', 'value' => 100],
                 ],
             ],
-            'locale' => function () {
+            'locale' => function () {                
+                if(session()->has('locale')) {
+                    app()->setLocale(session('locale'));
+                }
                 return app()->getLocale();
             },
             'language' => function () {
