@@ -9,6 +9,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
 /*
@@ -38,6 +39,11 @@ Route::get('/dashboard', function () {
         'permissions'   => (int) Permission::count(),
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/setLang/{locale}', function ($locale) {
+    Session::put('locale', $locale); 
+    return back();
+})->name('setlang');
 
 Route::middleware('auth', 'verified')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -5,6 +5,7 @@ import DropdownLink from '@/Components/DropdownLink.vue'
 import { Link } from '@inertiajs/inertia-vue3'
 import { Bars3CenterLeftIcon, CheckBadgeIcon, ChevronDownIcon, UserIcon } from "@heroicons/vue/24/solid"
 import SwitchDarkModeNavbar from '@/Components/SwitchDarkModeNavbar.vue'
+import SwitchLangNavbar from '@/Components/SwitchLangNavbar.vue'
 
 const emit = defineEmits(["open"])
 
@@ -33,6 +34,7 @@ const emit = defineEmits(["open"])
                     </div>
                 </div>
                 <div class="flex items-center space-x-2">
+                    <SwitchLangNavbar />
                     <SwitchDarkModeNavbar />
                     <div class="">
                         <!-- Settings Dropdown -->
