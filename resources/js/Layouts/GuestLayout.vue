@@ -2,6 +2,7 @@
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import { Link } from '@inertiajs/inertia-vue3';
 import SwitchDarkMode from '@/Components/SwitchDarkMode.vue'
+import SwitchLangNavBar from '@/Components/SwitchLangNavBar.vue'
 </script>
 
 <template>
@@ -14,7 +15,10 @@ import SwitchDarkMode from '@/Components/SwitchDarkMode.vue'
                             <ApplicationLogo class="w-8 h-8 fill-current" />
                             <p class="text-lg ml-2">Laravel Brive</p>
                         </Link>
-                        <SwitchDarkMode />
+                        <div class="flex space-x-2 items-center">
+                            <SwitchLangNavBar />
+                            <SwitchDarkMode />
+                        </div>
                     </div>
                     <slot />
                 </div>
