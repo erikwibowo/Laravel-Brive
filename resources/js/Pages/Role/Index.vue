@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head } from '@inertiajs/inertia-vue3';
+import { Head } from '@inertiajs/vue3';
 import Breadcrumb from '@/Components/Breadcrumb.vue';
 import TextInput from '@/Components/TextInput.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
@@ -9,7 +9,7 @@ import SelectInput from '@/Components/SelectInput.vue';
 import { reactive, watch } from 'vue';
 import DangerButton from '@/Components/DangerButton.vue';
 import { _, pickBy, debounce } from "lodash";
-import { Inertia } from '@inertiajs/inertia';
+import { router } from '@inertiajs/vue3';
 import Pagination from '@/Components/Pagination.vue';
 import { ChevronUpDownIcon, PencilIcon, TrashIcon } from '@heroicons/vue/24/solid';
 import Create from '@/Pages/Role/Create.vue';
@@ -18,7 +18,7 @@ import Delete from '@/Pages/Role/Delete.vue';
 import DeleteBulk from '@/Pages/Role/DeleteBulk.vue';
 import Checkbox from '@/Components/Checkbox.vue';
 import Permission from '@/Pages/Role/Permission.vue';
-import { usePage } from '@inertiajs/inertia-vue3';
+import { usePage } from '@inertiajs/vue3';
 
 const props = defineProps({
     title: String,
@@ -43,7 +43,7 @@ const data = reactive({
     deleteBulkOpen: false,
     permissionOpen: false,
     role: null,
-    dataSet: usePage().props.value.app.perpage
+    dataSet: usePage().props.app.perpage
 })
 
 const order = (field) => {
@@ -53,7 +53,7 @@ const order = (field) => {
 
 watch(() => _.cloneDeep(data.params), debounce(() => {
     let params = pickBy(data.params)
-    Inertia.get(route("role.index"), params, {
+    router.get(route("role.index"), params, {
         replace: true,
         preserveState: true,
         preserveScroll: true,

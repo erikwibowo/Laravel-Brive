@@ -1,7 +1,7 @@
 <script setup>
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import SwitchDarkMode from '@/Components/SwitchDarkMode.vue';
-import { Head, Link } from '@inertiajs/inertia-vue3';
+import { Head, Link } from '@inertiajs/vue3';
 import SwitchLangNavBar from '@/Components/SwitchLangNavBar.vue'
 
 defineProps({

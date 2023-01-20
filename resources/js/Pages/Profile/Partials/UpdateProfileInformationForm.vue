@@ -3,7 +3,7 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
-import { Link, useForm, usePage } from '@inertiajs/inertia-vue3';
+import { Link, useForm, usePage } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
 const props = defineProps({
@@ -11,7 +11,7 @@ const props = defineProps({
     status: String,
 });
 
-const user = usePage().props.value.auth.user;
+const user = usePage().props.auth.user;
 
 const form = useForm({
     name: user.name,
@@ -27,7 +27,8 @@ const updateProfile = () => {
 <template>
     <section>
         <header>
-            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">{{ lang().profile.profile_information }}</h2>
+            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">{{ lang().profile.profile_information }}
+            </h2>
 
             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
                 {{ lang().profile.update_profile }}
@@ -58,7 +59,7 @@ const updateProfile = () => {
                     {{ lang().profile.unverified_email }}
                     <Link :href="route('verification.send')" method="post" as="button"
                         class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-800">
-                        {{ lang().profile.resend_email_verification }}
+                    {{ lang().profile.resend_email_verification }}
                     </Link>
                 </p>
 
@@ -70,11 +71,13 @@ const updateProfile = () => {
 
             <div class="flex items-center gap-4">
                 <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    {{ form.processing ? lang().button.save+'...' : lang().button.save }}
+                    {{ form.processing ? lang().button.save + '...' : lang().button.save }}
                 </PrimaryButton>
 
                 <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" class="transition ease-in-out">
-                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600 dark:text-gray-400">{{ lang().profile.saved }}</p>
+                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600 dark:text-gray-400">{{
+                        lang().profile.saved
+                    }}</p>
                 </Transition>
             </div>
         </form>

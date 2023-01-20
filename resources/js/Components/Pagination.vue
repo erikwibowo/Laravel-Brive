@@ -1,5 +1,5 @@
 <script setup>
-import { Inertia } from "@inertiajs/inertia";
+import { router } from '@inertiajs/vue3';
 import { pickBy } from "lodash";
 import { reactive, watchEffect } from "vue";
 import Icon from "@/Components/Icon.vue";
@@ -20,7 +20,7 @@ const data = reactive({
 
 const goto = (link) => {
     let params = pickBy(data.params);
-    Inertia.get(link, params, {
+    router.get(link, params, {
         replace: true,
         preserveState: true,
         preserveScroll: true,
@@ -39,11 +39,11 @@ watchEffect(() => {
         {{ links.from }}-{{ links.to }} of {{ links.total }}
     </div>
     <div class="flex flex-col space-y-2 mx-auto p-6 text-lg" v-if="links.data.length == 0">
-        <Icon :name="'nodata'" class="w-auto h-16" />
+           <Icon :name="'nodata'" class="w-auto h-16" />
         <p>{{ lang().label.no_data }}</p>
     </div>
     <div v-if="links.links.length > 3">
-        <!-- <ul
+       <!-- <ul
             class="hidden lg:flex justify-center items-center rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
             <li v-for="(link, index) in links.links" :key="index">
                 <button v-on:click="goto(link.url)" class="px-4 py-2 hover:bg-primary hover:text-white"
@@ -56,14 +56,14 @@ watchEffect(() => {
             <li>
                 <button v-on:click="goto(links.prev_page_url)" class="px-4 py-2" v-html="'&laquo;'"
                     :disabled="links.prev_page_url == null"></button>
-            </li>
+                       </li>
             <li>
                 <p class="px-4 py-2 bg-primary text-white" v-html="links.current_page"></p>
-            </li>
+                </li>
             <li>
                 <button v-on:click="goto(links.next_page_url)" class="px-4 py-2" v-html="'&raquo;'"
                     :disabled="links.next_page_url == null"></button>
-            </li>
+                    </li>
         </ul>
     </div>
 </template>

@@ -2,7 +2,7 @@
 import ApplicationLogo from '@/Components/ApplicationLogo.vue'
 import Dropdown from '@/Components/Dropdown.vue'
 import DropdownLink from '@/Components/DropdownLink.vue'
-import { Link } from '@inertiajs/inertia-vue3'
+import { Link } from '@inertiajs/vue3'
 import { Bars3CenterLeftIcon, CheckBadgeIcon, ChevronDownIcon, UserIcon } from "@heroicons/vue/24/solid"
 import SwitchDarkModeNavbar from '@/Components/SwitchDarkModeNavbar.vue'
 import SwitchLangNavbar from '@/Components/SwitchLangNavbar.vue'
@@ -50,7 +50,8 @@ const emit = defineEmits(["open"])
                                             class="hover:text-gray-400 hover:bg-gray-900 focus:bg-gray-900 focus:text-gray-400 items-center justify-center p-2 rounded-md lg:hover:text-gray-500 dark:hover:text-gray-400 lg:hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none lg:focus:bg-gray-100 dark:focus:bg-gray-900 lg:focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out truncate w-fit hidden sm:inline-flex">
                                             <span class="flex justify-between items-center">
                                                 {{ $page.props.auth.user.name.split(' ')[0] }}
-                                                <CheckBadgeIcon class="ml-[2px] w-4 h-4 text-white dark:text-white lg:text-primary"
+                                                <CheckBadgeIcon
+                                                    class="ml-[2px] w-4 h-4 text-white dark:text-white lg:text-primary"
                                                     v-show="$page.props.auth.user.email_verified_at" />
                                             </span>
                                             <ChevronDownIcon class="ml-2 h-5 w-5 fill-current" />
@@ -64,7 +65,7 @@ const emit = defineEmits(["open"])
                                         <span class="flex items-center justify-start text-sm truncate">
                                             {{ $page.props.auth.user.name }}
                                             <CheckBadgeIcon class="ml-[2px] w-4 h-4 dark:text-white text-primary"
-                                                    v-show="$page.props.auth.user.email_verified_at" />
+                                                v-show="$page.props.auth.user.email_verified_at" />
                                         </span>
                                         <span
                                             class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">

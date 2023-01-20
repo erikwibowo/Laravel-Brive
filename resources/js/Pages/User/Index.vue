@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head } from '@inertiajs/inertia-vue3';
+import { Head } from '@inertiajs/vue3';
 import Breadcrumb from '@/Components/Breadcrumb.vue';
 import TextInput from '@/Components/TextInput.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
@@ -9,7 +9,7 @@ import SelectInput from '@/Components/SelectInput.vue';
 import { reactive, watch } from 'vue';
 import DangerButton from '@/Components/DangerButton.vue';
 import { _, pickBy, debounce } from "lodash";
-import { Inertia } from '@inertiajs/inertia';
+import { router } from '@inertiajs/vue3';
 import Pagination from '@/Components/Pagination.vue';
 import { CheckBadgeIcon, ChevronUpDownIcon, PencilIcon, TrashIcon } from '@heroicons/vue/24/solid';
 import Create from '@/Pages/User/Create.vue';
@@ -17,7 +17,7 @@ import Edit from '@/Pages/User/Edit.vue';
 import Delete from '@/Pages/User/Delete.vue';
 import DeleteBulk from '@/Pages/User/DeleteBulk.vue';
 import Checkbox from '@/Components/Checkbox.vue';
-import { usePage } from '@inertiajs/inertia-vue3';
+import { usePage } from '@inertiajs/vue3';
 
 const props = defineProps({
     title: String,
@@ -41,7 +41,7 @@ const data = reactive({
     deleteOpen: false,
     deleteBulkOpen: false,
     user: null,
-    dataSet: usePage().props.value.app.perpage
+    dataSet: usePage().props.app.perpage
 })
 
 const order = (field) => {
@@ -51,7 +51,7 @@ const order = (field) => {
 
 watch(() => _.cloneDeep(data.params), debounce(() => {
     let params = pickBy(data.params)
-    Inertia.get(route("user.index"), params, {
+    router.get(route("user.index"), params, {
         replace: true,
         preserveState: true,
         preserveScroll: true,
@@ -89,17 +89,23 @@ const select = () => {
                     <PrimaryButton v-show="can(['create user'])" class="rounded-none" @click="data.createOpen = true">
                         {{ lang().button.add }}
                     </PrimaryButton>
-                    <Create :show="data.createOpen" @close="data.createOpen = false" :roles="props.roles" :title="props.title" />
-                    <Edit :show="data.editOpen" @close="data.editOpen = false" :user="data.user" :roles="props.roles" :title="props.title" />
-                    <Delete :show="data.deleteOpen" @close="data.deleteOpen = false" :user="data.user" :title="props.title" />
-                    <DeleteBulk :show="data.deleteBulkOpen" @close="data.deleteBulkOpen = false, data.multipleSelect = false, data.selectedId = []" :selectedId="data.selectedId" :title="props.title" />
+                    <Create :show="data.createOpen" @close="data.createOpen = false" :roles="props.roles"
+                        :title="props.title" />
+                    <Edit :show="data.editOpen" @close="data.editOpen = false" :user="data.user" :roles="props.roles"
+                        :title="props.title" />
+                    <Delete :show="data.deleteOpen" @close="data.deleteOpen = false" :user="data.user"
+                        :title="props.title" />
+                    <DeleteBulk :show="data.deleteBulkOpen"
+                        @close="data.deleteBulkOpen = false, data.multipleSelect = false, data.selectedId = []"
+                        :selectedId="data.selectedId" :title="props.title" />
                 </div>
             </div>
             <div class="relative bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="flex justify-between p-2">
                     <div class="flex space-x-2">
                         <SelectInput v-model="data.params.perPage" :dataSet="data.dataSet" />
-                        <DangerButton @click="data.deleteBulkOpen = true" v-show="data.selectedId.length != 0 && can(['delete user'])" class="px-3 py-1.5"
+                        <DangerButton @click="data.deleteBulkOpen = true"
+                            v-show="data.selectedId.length != 0 && can(['delete user'])" class="px-3 py-1.5"
                             v-tooltip="lang().tooltip.delete_selected">
                             <TrashIcon class="w-5 h-5" />
                         </DangerButton>
@@ -160,7 +166,8 @@ const select = () => {
                                     </span>
                                 </td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ user.email }}</td>
-                                <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ user.roles.length == 0 ? 'not selected':user.roles[0].name }}</td>
+                                <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{
+                                    user.roles.length == 0 ? 'not selected':user.roles[0].name }}</td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ user.created_at }}</td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ user.updated_at }}</td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">

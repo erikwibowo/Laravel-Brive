@@ -2,7 +2,7 @@
 import DangerButton from '@/Components/DangerButton.vue';
 import Modal from '@/Components/Modal.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
-import { useForm } from '@inertiajs/inertia-vue3';
+import { useForm } from '@inertiajs/vue3';
 
 const props = defineProps({
     show: Boolean,
@@ -27,7 +27,7 @@ const emit = defineEmits(["close"]);
                 <div class="my-6 grid grid-cols-2 sm:grid-cols-3">
                     <div v-for="(permission, index) in props.role?.permissions" :key="index"
                         class="flex justify-between w-full px-4 py-2 ">
-                        {{ ++index+". "+permission.name }}
+                        {{ ++index + ". " + permission.name }}
                     </div>
                 </div>
                 <div class="mt-6 flex justify-end">

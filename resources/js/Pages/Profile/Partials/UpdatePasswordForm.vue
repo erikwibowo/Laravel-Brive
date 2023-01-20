@@ -3,7 +3,7 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
-import { useForm } from '@inertiajs/inertia-vue3';
+import { useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
 const passwordInput = ref(null);
@@ -48,7 +48,8 @@ const updatePassword = () => {
                 <InputLabel for="current_password" :value="lang().profile.current_password" />
 
                 <TextInput id="current_password" ref="currentPasswordInput" v-model="form.current_password"
-                    type="password" class="mt-1 block w-full" autocomplete="current-password" :placeholder="lang().placeholder.password" />
+                    type="password" class="mt-1 block w-full" autocomplete="current-password"
+                    :placeholder="lang().placeholder.password" />
 
                 <InputError :message="form.errors.current_password" class="mt-2" />
             </div>
@@ -66,18 +67,21 @@ const updatePassword = () => {
                 <InputLabel for="password_confirmation" :value="lang().label.password_confirmation" />
 
                 <TextInput id="password_confirmation" v-model="form.password_confirmation" type="password"
-                    class="mt-1 block w-full" autocomplete="new-password" :placeholder="lang().placeholder.password_confirmation" />
+                    class="mt-1 block w-full" autocomplete="new-password"
+                    :placeholder="lang().placeholder.password_confirmation" />
 
                 <InputError :message="form.errors.password_confirmation" class="mt-2" />
             </div>
 
             <div class="flex items-center gap-4">
                 <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    {{ form.processing ? lang().button.save+'...' : lang().button.save }}
+                    {{ form.processing ? lang().button.save + '...' : lang().button.save }}
                 </PrimaryButton>
 
                 <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" class="transition ease-in-out">
-                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600 dark:text-gray-400">{{ lang().profile.saved }}</p>
+                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600 dark:text-gray-400">{{
+                        lang().profile.saved
+                    }}</p>
                 </Transition>
             </div>
         </form>
