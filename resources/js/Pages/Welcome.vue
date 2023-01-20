@@ -15,7 +15,7 @@ defineProps({
 <template>
 
     <Head :title="lang().label.welcome" />
-    <div class="relative flex justify-center min-h-screen bg-gray-100 dark:bg-gray-900 items-center sm:pt-0">
+    <div class="relative flex justify-center min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 items-center sm:pt-0">
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
             <div class="flex items-center pt-8 px-4 sm:px-0 justify-between sm:pt-0">
                 <div class="flex items-center">
