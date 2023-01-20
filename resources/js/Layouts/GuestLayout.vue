@@ -15,7 +15,7 @@ import SwitchLangNavBar from '@/Components/SwitchLangNavBar.vue'
                     <div class="flex justify-between items-center">
                         <Link class="flex items-center" href="/">
                         <ApplicationLogo class="w-8 h-8 fill-current" />
-                        <p class="text-lg ml-2">Laravel Brive</p>
+                        <p class="text-lg ml-2">{{ $page.props.app.name }}</p>
                         </Link>
                         <div class="flex space-x-2 items-center">
                             <SwitchLangNavBar />
