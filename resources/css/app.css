@@ -30,7 +30,7 @@
 }
 
 .scrollbar-sidebar::-webkit-scrollbar-thumb {
-    @apply bg-gray-400 dark:bg-gray-300 rounded
+    @apply bg-gray-400 dark:bg-gray-600 rounded
 }
 
 .scrollbar-sidebar::-webkit-scrollbar-thumb:hover {

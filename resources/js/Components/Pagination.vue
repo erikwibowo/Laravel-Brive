@@ -36,7 +36,7 @@ watchEffect(() => {
 </script>
 <template>
     <div class="ml-2" v-if="links.data.length != 0">
-        {{ links.from }}-{{ links.to }} of {{ links.total }}
+        {{ links.from }}-{{ links.to }} {{ lang().label.of }} {{ links.total }}
     </div>
     <div class="flex flex-col space-y-2 mx-auto p-6 text-lg" v-if="links.data.length == 0">
            <Icon :name="'nodata'" class="w-auto h-16" />

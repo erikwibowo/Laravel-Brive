@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'id',
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'faker_locale' => 'id_ID',
+    'faker_locale' => 'en_US',
 
     /*
     |--------------------------------------------------------------------------
@@ -185,7 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Spatie\Permission\PermissionServiceProvider::class,
+
         /*
          * Application Service Providers...
          */

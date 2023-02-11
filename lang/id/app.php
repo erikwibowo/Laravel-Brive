@@ -53,6 +53,7 @@ return [
         'check_all' => 'Pilih semua',
         'email_verification' => 'Verifikasi Email',
         'password_forgot' => 'Lupa Kata Sandi',
+        'of' => 'dari',
     ],
     'button' => [
         'login' => 'Masuk',

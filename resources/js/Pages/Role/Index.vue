@@ -8,7 +8,7 @@ import InfoButton from '@/Components/InfoButton.vue';
 import SelectInput from '@/Components/SelectInput.vue';
 import { reactive, watch } from 'vue';
 import DangerButton from '@/Components/DangerButton.vue';
-import { _, pickBy, debounce } from "lodash";
+import pkg from 'lodash';
 import { router } from '@inertiajs/vue3';
 import Pagination from '@/Components/Pagination.vue';
 import { ChevronUpDownIcon, PencilIcon, TrashIcon } from '@heroicons/vue/24/solid';
@@ -20,6 +20,7 @@ import Checkbox from '@/Components/Checkbox.vue';
 import Permission from '@/Pages/Role/Permission.vue';
 import { usePage } from '@inertiajs/vue3';
 
+const { _, debounce, pickBy } = pkg
 const props = defineProps({
     title: String,
     filters: Object,

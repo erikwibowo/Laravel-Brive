@@ -53,6 +53,7 @@ return [
         'check_all' => 'Check all',
         'email_verification' => 'Email Verification',
         'password_forgot' => 'Forgotten password?',
+        'of' => 'of',
     ],
     'button' => [
         'login' => 'Login',

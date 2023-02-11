@@ -24,6 +24,7 @@
 - Rich Feature Datatable Serverside
 - Tooltip
 - Localization (EN/ID)
+- SSR (Server Side Rendering)
 # Requirements
 - Php 8
 - Composer

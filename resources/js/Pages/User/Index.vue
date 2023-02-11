@@ -8,7 +8,7 @@ import InfoButton from '@/Components/InfoButton.vue';
 import SelectInput from '@/Components/SelectInput.vue';
 import { reactive, watch } from 'vue';
 import DangerButton from '@/Components/DangerButton.vue';
-import { _, pickBy, debounce } from "lodash";
+import pkg from 'lodash';
 import { router } from '@inertiajs/vue3';
 import Pagination from '@/Components/Pagination.vue';
 import { CheckBadgeIcon, ChevronUpDownIcon, PencilIcon, TrashIcon } from '@heroicons/vue/24/solid';
@@ -19,6 +19,7 @@ import DeleteBulk from '@/Pages/User/DeleteBulk.vue';
 import Checkbox from '@/Components/Checkbox.vue';
 import { usePage } from '@inertiajs/vue3';
 
+const { _, debounce, pickBy } = pkg
 const props = defineProps({
     title: String,
     filters: Object,
@@ -167,7 +168,8 @@ const select = () => {
                                 </td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ user.email }}</td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{
-                                    user.roles.length == 0 ? 'not selected':user.roles[0].name }}</td>
+                                    user.roles.length == 0 ? 'not selected' : user.roles[0].name
+                                }}</td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ user.created_at }}</td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">{{ user.updated_at }}</td>
                                 <td class="whitespace-nowrap py-4 px-2 sm:py-3">
