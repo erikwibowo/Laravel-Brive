@@ -41,14 +41,14 @@ const submit = () => {
             <div>
                 <InputLabel for="email" :value="lang().label.email" />
                 <TextInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus
-                    autocomplete="username" :placeholder="lang().placeholder.email" />
+                    autocomplete="username" :placeholder="lang().placeholder.email" :error="form.errors.email" />
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
             <div class="mt-4">
                 <InputLabel for="password" :value="lang().label.password" />
                 <TextInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required
-                    autocomplete="current-password" :placeholder="lang().placeholder.password" />
+                    autocomplete="current-password" :placeholder="lang().placeholder.password" :error="form.errors.password" />
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
 

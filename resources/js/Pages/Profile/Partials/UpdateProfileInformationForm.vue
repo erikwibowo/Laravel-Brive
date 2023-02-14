@@ -40,7 +40,7 @@ const updateProfile = () => {
                 <InputLabel for="name" :value="lang().label.name" />
 
                 <TextInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus
-                    autocomplete="name" :placeholder="lang().placeholder.name" />
+                    autocomplete="name" :placeholder="lang().placeholder.name" :error="form.errors.name" />
 
                 <InputError class="mt-2" :message="form.errors.name" />
             </div>
@@ -49,7 +49,7 @@ const updateProfile = () => {
                 <InputLabel for="email" :value="lang().label.email" />
 
                 <TextInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required
-                    autocomplete="email" :placeholder="lang().placeholder.email" />
+                    autocomplete="email" :placeholder="lang().placeholder.email" :error="form.errors.email" />
 
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>

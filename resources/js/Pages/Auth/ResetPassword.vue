@@ -39,7 +39,7 @@ const submit = () => {
                 <InputLabel for="email" :value="lang().label.email" />
 
                 <TextInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus
-                    autocomplete="username" :placeholder="lang().placeholder.email" />
+                    autocomplete="username" :placeholder="lang().placeholder.email" :error="form.errors.email" />
 
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
@@ -48,7 +48,7 @@ const submit = () => {
                 <InputLabel for="password" :value="lang().label.password" />
 
                 <TextInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required
-                    autocomplete="new-password" :placeholder="lang().placeholder.password" />
+                    autocomplete="new-password" :placeholder="lang().placeholder.password" :error="form.errors.password" />
 
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
@@ -58,7 +58,7 @@ const submit = () => {
 
                 <TextInput id="password_confirmation" type="password" class="mt-1 block w-full"
                     v-model="form.password_confirmation" required autocomplete="new-password"
-                    :placeholder="lang().placeholder.password_confirmation" />
+                    :placeholder="lang().placeholder.password_confirmation" :error="form.errors.password_confirmation" />
 
                 <InputError class="mt-2" :message="form.errors.password_confirmation" />
             </div>

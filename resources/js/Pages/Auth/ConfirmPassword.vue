@@ -34,7 +34,7 @@ const submit = () => {
             <div>
                 <InputLabel for="password" :value="lang().label.password" />
                 <TextInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required
-                    autocomplete="current-password" autofocus :placeholder="lang().placeholder.password" />
+                    autocomplete="current-password" autofocus :placeholder="lang().placeholder.password" :error="form.errors.password" />
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
 

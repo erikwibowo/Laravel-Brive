@@ -49,7 +49,7 @@ const updatePassword = () => {
 
                 <TextInput id="current_password" ref="currentPasswordInput" v-model="form.current_password"
                     type="password" class="mt-1 block w-full" autocomplete="current-password"
-                    :placeholder="lang().placeholder.password" />
+                    :placeholder="lang().placeholder.password" :error="form.errors.current_password" />
 
                 <InputError :message="form.errors.current_password" class="mt-2" />
             </div>
@@ -58,7 +58,7 @@ const updatePassword = () => {
                 <InputLabel for="password" :value="lang().profile.new_password" />
 
                 <TextInput id="password" ref="passwordInput" v-model="form.password" type="password"
-                    class="mt-1 block w-full" autocomplete="new-password" :placeholder="lang().placeholder.password" />
+                    class="mt-1 block w-full" autocomplete="new-password" :placeholder="lang().placeholder.password" :error="form.errors.password" />
 
                 <InputError :message="form.errors.password" class="mt-2" />
             </div>
@@ -68,7 +68,7 @@ const updatePassword = () => {
 
                 <TextInput id="password_confirmation" v-model="form.password_confirmation" type="password"
                     class="mt-1 block w-full" autocomplete="new-password"
-                    :placeholder="lang().placeholder.password_confirmation" />
+                    :placeholder="lang().placeholder.password_confirmation" :error="form.errors.password_confirmation" />
 
                 <InputError :message="form.errors.password_confirmation" class="mt-2" />
             </div>

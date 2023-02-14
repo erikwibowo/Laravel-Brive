@@ -43,7 +43,7 @@ const create = () => {
                     <div>
                         <InputLabel for="name" :value="lang().label.role" />
                         <TextInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required
-                            :placeholder="lang().placeholder.name" />
+                            :placeholder="lang().placeholder.name" :error="form.errors.name" />
                         <InputError class="mt-2" :message="form.errors.name" />
                     </div>
                 </div>

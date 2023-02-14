@@ -51,26 +51,26 @@ const roles = props.roles?.map(role => ({ label: role.name, value: role.name }))
                     <div>
                         <InputLabel for="name" :value="lang().label.name" />
                         <TextInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required
-                            :placeholder="lang().placeholder.name" />
+                            :placeholder="lang().placeholder.name" :error="form.errors.name" />
                         <InputError class="mt-2" :message="form.errors.name" />
                     </div>
                     <div>
                         <InputLabel for="email" :value="lang().label.email" />
                         <TextInput id="email" type="email" class="mt-1 block w-full" v-model="form.email"
-                            :placeholder="lang().placeholder.email" />
+                            :placeholder="lang().placeholder.email" :error="form.errors.email" />
                         <InputError class="mt-2" :message="form.errors.email" />
                     </div>
                     <div>
                         <InputLabel for="password" :value="lang().label.password" />
                         <TextInput id="password" type="password" class="mt-1 block w-full" v-model="form.password"
-                            :placeholder="lang().placeholder.password" />
+                            :placeholder="lang().placeholder.password" :error="form.errors.password" />
                         <InputError class="mt-2" :message="form.errors.password" />
                     </div>
                     <div>
                         <InputLabel for="password_confirmation" :value="lang().label.password_confirmation" />
                         <TextInput id="password_confirmation" type="password" class="mt-1 block w-full"
                             v-model="form.password_confirmation"
-                            :placeholder="lang().placeholder.password_confirmation" />
+                            :placeholder="lang().placeholder.password_confirmation" :error="form.errors.password_confirmation" />
                         <InputError class="mt-2" :message="form.errors.password_confirmation" />
                     </div>
                     <div>

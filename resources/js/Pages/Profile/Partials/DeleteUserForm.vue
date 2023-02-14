@@ -62,7 +62,7 @@ const closeModal = () => {
                 <div class="mt-6">
                     <InputLabel for="password" :value="lang().label.password" class="sr-only" />
                     <TextInput id="password" ref="passwordInput" v-model="form.password" type="password"
-                        class="mt-1 block w-full" @keyup.enter="deleteUser" :placeholder="lang().placeholder.password" />
+                        class="mt-1 block w-full" @keyup.enter="deleteUser" :placeholder="lang().placeholder.password" :error="form.errors.password" />
 
                     <InputError :message="form.errors.password" class="mt-2" />
                 </div>
