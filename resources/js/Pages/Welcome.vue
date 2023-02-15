@@ -2,7 +2,7 @@
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import SwitchDarkMode from '@/Components/SwitchDarkMode.vue';
 import { Head, Link } from '@inertiajs/vue3';
-import SwitchLangNavBar from '@/Components/SwitchLangNavBar.vue'
+import SwitchLangNavbar from '@/Components/SwitchLangNavbar.vue';
 
 defineProps({
     canLogin: Boolean,
@@ -23,7 +23,7 @@ defineProps({
                     <p class="text-3xl sm:text-5xl ml-4 text-primary">{{ $page.props.app.name }}</p>
                 </div>
                 <div class="flex space-x-2 items-center">
-                    <SwitchLangNavBar />
+                    <SwitchLangNavbar />
                     <SwitchDarkMode />
                 </div>
             </div>
