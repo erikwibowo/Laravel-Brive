@@ -1,8 +1,8 @@
 <script setup>
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import { Link } from '@inertiajs/vue3';
-import SwitchDarkMode from '@/Components/SwitchDarkMode.vue'
-import SwitchLangNavBar from '@/Components/SwitchLangNavBar.vue'
+import SwitchDarkMode from '@/Components/SwitchDarkMode.vue';
+import SwitchLangNavbar from '@/Components/SwitchLangNavbar.vue';
 </script>
 
 <template>
@@ -18,7 +18,7 @@ import SwitchLangNavBar from '@/Components/SwitchLangNavBar.vue'
                         <p class="text-lg ml-2">{{ $page.props.app.name }}</p>
                         </Link>
                         <div class="flex space-x-2 items-center">
-                            <SwitchLangNavBar />
+                            <SwitchLangNavbar />
                             <SwitchDarkMode />
                         </div>
                     </div>
