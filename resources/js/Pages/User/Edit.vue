@@ -43,6 +43,7 @@ watchEffect(() => {
         form.name = props.user?.name
         form.email = props.user?.email
         form.role = props.user?.roles == 0 ? '' : props.user?.roles[0].name
+        form.errors = {}
     }
 })
 
