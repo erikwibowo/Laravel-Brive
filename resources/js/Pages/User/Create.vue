@@ -7,6 +7,7 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import SelectInput from '@/Components/SelectInput.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
+import { watchEffect } from 'vue';
 
 const props = defineProps({
     show: Boolean,
@@ -35,6 +36,12 @@ const create = () => {
         onFinish: () => null,
     })
 }
+
+watchEffect(() => {
+    if (props.show) {
+        form.errors = {}
+    }
+})
 
 const roles = props.roles?.map(role => ({ label: role.name, value: role.name }))
 
