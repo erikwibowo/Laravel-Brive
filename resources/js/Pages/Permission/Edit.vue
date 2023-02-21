@@ -34,6 +34,7 @@ const update = () => {
 
 watchEffect(() => {
     if (props.show) {
+        form.errors = {}
         form.name = props.permission?.name
     }
 })

@@ -42,6 +42,7 @@ const update = () => {
 
 watchEffect(() => {
     if (props.show) {
+        form.errors = {}
         form.name = props.role?.name
         form.permissions = props.role.permissions?.map((d) => d.id);
     }

@@ -6,6 +6,7 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
+import { watchEffect } from 'vue';
 
 const props = defineProps({
     show: Boolean,
@@ -29,6 +30,12 @@ const create = () => {
         onFinish: () => null,
     })
 }
+
+watchEffect(() => {
+    if (props.show) {
+        form.errors = {}
+    }
+})
 
 </script>
 

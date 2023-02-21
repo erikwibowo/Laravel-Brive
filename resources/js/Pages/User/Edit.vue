@@ -40,6 +40,7 @@ const update = () => {
 
 watchEffect(() => {
     if (props.show) {
+        form.errors = {}
         form.name = props.user?.name
         form.email = props.user?.email
         form.role = props.user?.roles == 0 ? '' : props.user?.roles[0].name
@@ -80,8 +81,8 @@ const roles = props.roles?.map(role => ({ label: role.name, value: role.name }))
                     <div>
                         <InputLabel for="password_confirmation" :value="lang().label.password_confirmation" />
                         <TextInput id="password_confirmation" type="password" class="mt-1 block w-full"
-                            v-model="form.password_confirmation"
-                            :placeholder="lang().placeholder.password_confirmation" :error="form.errors.password_confirmation" />
+                            v-model="form.password_confirmation" :placeholder="lang().placeholder.password_confirmation"
+                            :error="form.errors.password_confirmation" />
                         <InputError class="mt-2" :message="form.errors.password_confirmation" />
                     </div>
                     <div>

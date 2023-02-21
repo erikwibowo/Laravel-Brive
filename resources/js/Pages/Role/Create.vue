@@ -7,7 +7,7 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
 import Checkbox from '@/Components/Checkbox.vue';
-import { reactive } from 'vue';
+import { reactive, watchEffect } from 'vue';
 
 const props = defineProps({
     show: Boolean,
@@ -39,6 +39,12 @@ const create = () => {
         onFinish: () => null,
     })
 }
+
+watchEffect(() => {
+    if (props.show) {
+        form.errors = {}
+    }
+})
 
 const selectAll = (event) => {
     if (event.target.checked === false) {
