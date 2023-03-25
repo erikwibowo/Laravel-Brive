@@ -27,8 +27,8 @@ import { Link } from '@inertiajs/vue3';
             <span class="block text-sm font-medium truncate">{{ $page.props.auth.user.roles[0].name }}</span>
         </div>
         <ul class="space-y-2 my-4">
-            <li class="bg-gray-700/40 dark:bg-gray-800/40 text-white rounded-lg hover:bg-primary dark:hover:bg-primary"
-                :class="{ 'bg-sky-600 dark:bg-sky-600': route().current('dashboard') }">
+            <li class="text-white rounded-lg hover:bg-primary dark:hover:bg-primary"
+                v-bind:class="route().current('dashboard') ? 'bg-primary' : 'bg-gray-700/40 dark:bg-gray-800/40'">
                 <Link :href="route('dashboard')" class="flex items-center py-2 px-4">
                 <HomeIcon class="w-6 h-5" />
                 <span class="ml-3">Dashboard</span>
@@ -37,9 +37,8 @@ import { Link } from '@inertiajs/vue3';
             <li v-show="can(['read user'])" class="py-2">
                 <p>{{ lang().label.data }}</p>
             </li>
-            <li v-show="can(['read user'])"
-                class="bg-gray-700/40 dark:bg-gray-800/40 text-white rounded-lg hover:bg-primary dark:hover:bg-primary"
-                :class="{ 'bg-sky-600 dark:bg-sky-600': route().current('user.index') }">
+            <li v-show="can(['read user'])" class="text-white rounded-lg hover:bg-primary dark:hover:bg-primary"
+                v-bind:class="route().current('user.index') ? 'bg-primary' : 'bg-gray-700/40 dark:bg-gray-800/40'">
                 <Link :href="route('user.index')" class="flex items-center py-2 px-4">
                 <UserIcon class="w-6 h-5" />
                 <span class="ml-3">{{ lang().label.user }}</span>
@@ -48,17 +47,15 @@ import { Link } from '@inertiajs/vue3';
             <li v-show="can(['read role', 'read permission'])" class="py-2">
                 <p>{{ lang().label.access }}</p>
             </li>
-            <li v-show="can(['read role'])"
-                class="bg-gray-700/40 dark:bg-gray-800/40 text-white rounded-lg hover:bg-primary dark:hover:bg-primary"
-                :class="{ 'bg-sky-600 dark:bg-sky-600': route().current('role.index') }">
+            <li v-show="can(['read role'])" class="text-white rounded-lg hover:bg-primary dark:hover:bg-primary"
+                v-bind:class="route().current('role.index') ? 'bg-primary' : 'bg-gray-700/40 dark:bg-gray-800/40'">
                 <Link :href="route('role.index')" class="flex items-center py-2 px-4">
                 <KeyIcon class="w-6 h-5" />
                 <span class="ml-3">{{ lang().label.role }}</span>
                 </Link>
             </li>
-            <li v-show="can(['read permission'])"
-                class="bg-gray-700/40 dark:bg-gray-800/40 text-white rounded-lg hover:bg-primary dark:hover:bg-primary"
-                :class="{ 'bg-sky-600 dark:bg-sky-600': route().current('permission.index') }">
+            <li v-show="can(['read permission'])" class="text-white rounded-lg hover:bg-primary dark:hover:bg-primary"
+                v-bind:class="route().current('permission.index') ? 'bg-primary' : 'bg-gray-700/40 dark:bg-gray-800/40'">
                 <Link :href="route('permission.index')" class="flex items-center py-2 px-4">
                 <ShieldCheckIcon class="w-6 h-5" />
                 <span class="ml-3">{{ lang().label.permission }}</span>
