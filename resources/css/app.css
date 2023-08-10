@@ -6,65 +6,65 @@
 @tailwind utilities;
 
 .scrollbar::-webkit-scrollbar {
-    @apply w-1.5 h-1.5 bg-gray-800 dark:bg-gray-300;
+    @apply w-1.5 h-1.5 bg-slate-800 dark:bg-slate-300;
 }
 
 .scrollbar::-webkit-scrollbar-track {
-    @apply bg-gray-100 dark:bg-gray-900
+    @apply bg-slate-100 dark:bg-slate-900;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-gray-800 dark:bg-white
+    @apply bg-slate-800 dark:bg-white;
 }
 
 .scrollbar::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-800/80 dark:bg-white/80
+    @apply bg-slate-800/80 dark:bg-white/80;
 }
 
 .scrollbar-sidebar::-webkit-scrollbar {
-    @apply w-1 h-1 bg-gray-800 dark:bg-gray-300;
+    @apply w-1 h-1 bg-slate-800 dark:bg-slate-300;
 }
 
 .scrollbar-sidebar::-webkit-scrollbar-track {
-    @apply bg-gray-800 dark:bg-gray-900
+    @apply bg-slate-800 dark:bg-slate-900;
 }
 
 .scrollbar-sidebar::-webkit-scrollbar-thumb {
-    @apply bg-gray-400 dark:bg-gray-600 rounded
+    @apply bg-slate-400 dark:bg-slate-600 rounded;
 }
 
 .scrollbar-sidebar::-webkit-scrollbar-thumb:hover {
-    @apply bg-white/80
+    @apply bg-white/80;
 }
 
 .scrollbar-table::-webkit-scrollbar {
-    @apply w-1.5 h-1.5 bg-gray-800 dark:bg-white;
+    @apply w-1.5 h-1.5 bg-slate-800 dark:bg-white;
 }
 
 .scrollbar-table::-webkit-scrollbar-track {
-    @apply bg-white dark:bg-gray-800
+    @apply bg-white dark:bg-slate-800;
 }
 
 .scrollbar-table::-webkit-scrollbar-thumb {
-    @apply bg-gray-400 dark:bg-gray-300 rounded
+    @apply bg-slate-400 dark:bg-slate-300 rounded;
 }
 
 .scrollbar-table::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-800/80 dark:bg-white
+    @apply bg-slate-800/80 dark:bg-white;
 }
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
-    @apply dark:invert
+    @apply dark:invert;
 }
 input[type="time"]::-webkit-inner-spin-button,
 input[type="time"]::-webkit-calendar-picker-indicator {
-    @apply dark:invert
+    @apply dark:invert;
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-calendar-picker-indicator {
-    @apply dark:invert
+    @apply dark:invert;
 }
 input[type="password"]::-ms-reveal,
 input[type="password"]::-ms-clear {
-    @apply dark:invert
+    @apply dark:invert;
 }
